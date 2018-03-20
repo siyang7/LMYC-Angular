@@ -11,10 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'fleet', component: FleetComponent },
+  { path: 'our-fleet', component: FleetComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'membership', component: MembershipComponent },
   { path: 'rules-and-regulations', component: RulesComponent },
