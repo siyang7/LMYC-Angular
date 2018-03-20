@@ -1,5 +1,3 @@
-
-
 # LMYC-Angular &nbsp;&nbsp;&nbsp;
 ![LMYC Logo](http://www.lmyc.ca/sites/all/themes/lmyc/images/logo.png)
 
@@ -14,7 +12,7 @@ This is repository consists of the [Angular](https://angular.io/) part of the so
 Angular
 ```
 
-### Coding style
+## Coding style
 [Angular Style Guide](https://angular.io/guide/styleguide)
 
 ## Built With
@@ -35,7 +33,7 @@ Angular
 ## Reference
 
 * [Old Website](http://www.lmyc.ca/)
-* [WordPress Site](http://www.sailwhiterock.com/)
+* [WordPress Website](http://www.sailwhiterock.com/)
 
 ## Format
 
