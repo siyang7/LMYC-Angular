@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.3] - 2018-03-22
+
+### Added
+- Bootstrap CDN - BB
+
+###Updated
+- Navbar look - BB
+- Navbar mobile functionality - BB
+- Page titles - BB
+
 ## [0.0.2] - 2018-03-22
 ### Added
 - auth folder which contains login, signup components - CL
