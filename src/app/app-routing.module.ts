@@ -7,11 +7,12 @@ import { FaqComponent } from './faq/faq.component';
 import { MembershipComponent } from './membership/membership.component';
 import { RulesComponent } from './rules/rules.component';
 import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, pathMatch: "full" },
   { path: 'about', component: AboutComponent },
   { path: 'our-fleet', component: FleetComponent },
   { path: 'faq', component: FaqComponent },

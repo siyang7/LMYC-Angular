@@ -9,9 +9,11 @@ import { FaqComponent } from './faq/faq.component';
 import { MembershipComponent } from './membership/membership.component';
 import { RulesComponent } from './rules/rules.component';
 import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,10 +27,13 @@ import { AppRoutingModule } from './app-routing.module';
     ContactComponent,
     LoginComponent,
     SignupComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
