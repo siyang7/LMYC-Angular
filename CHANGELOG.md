@@ -1,16 +1,29 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-##Team member: Castiel Li (CL) , Bryan Brotonel(BB)
+#### Team members: Castiel Li (CL) , Bryan Brotonel(BB)
 
 ## [Unreleased]
+
+## [0.0.4] - 2018-03-22
+
+### Added
+- Rules and Regulation page - BB
+- Membership page - BB
+- About page - BB
+- FAQ page - BB
+
+### Updated
+- Loading page styling - BB
+- NavBar references - BB
+- Spelling mistake in Membership page - BB
 
 ## [0.0.3] - 2018-03-22
 
 ### Added
 - Bootstrap CDN - BB
 
-###Updated
+### Updated
 - Navbar look - BB
 - Navbar mobile functionality - BB
 - Page titles - BB
@@ -20,7 +33,7 @@ All notable changes to this project will be documented in this file.
 - auth folder which contains login, signup components - CL
 - navbar component - CL
 
-###Updated
+### Updated
 - app-routing to fix the active link issues - CL
 - Login component (Added form for html and ts) -CL
 - Signup component (Added form for html and ts) -CL
