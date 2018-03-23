@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-  private BASE_URL = "http://local:8888";
-
+  private BASE_URL = "http://localhost:8888";
+  accessToken = "";
   constructor(private http: Http) { }
 
   private handleError(error: any): Promise<any> {
@@ -19,7 +19,7 @@ export class AuthService {
 
   signup(newUser: User): Promise<User> {
     return this.http
-      .post(this.BASE_URL, JSON.stringify(newUser), { headers: this.headers })
+      .post(this.BASE_URL += "/api/AccountAPI/Register", JSON.stringify(newUser), { headers: this.headers })
       .toPromise()
       .then(res => res.json().data)
       .catch(this.handleError);

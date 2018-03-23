@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   myForm: FormGroup;
-  newUser: User = new User();
+  
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
 
+  newUser: User = new User();
   onSubmit() {
     console.log(this.myForm);
     this.newUser.firstName = this.myForm.value.firstName;
