@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { User } from './user'
+import { User } from '../models/user'
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-  private BASE_URL = "http://localhost:8888";
+  private BASE_URL = "https://localhost:8888";
   accessToken = "";
   constructor(private http: Http) { }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 

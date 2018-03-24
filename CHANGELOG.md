@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.5] - 2018-03-24
+
+### Added
+- user.ts model - CL
+- boat.ts model - CL
+- auth.service.ts - CL
+
+### Updated
+- signup.components.ts (Added onSumbit methods) - CL
+- auth.service.ys (Added signup method which connets to api) - CL 
+
+
 ## [0.0.4] - 2018-03-22
 
 ### Added
