@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 ## [0.0.5] - 2018-03-24
 
 ### Added
+- reservation.ts model - CL
 - user.ts model - CL
 - boat.ts model - CL
 - auth.service.ts - CL

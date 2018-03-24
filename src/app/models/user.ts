@@ -1,7 +1,6 @@
 export class User {
     firstName: string;
-    lastName: string;
-    userName: string;
+    lastName: string; 
     street: string;
     city: string;
     postalCode: string;
@@ -14,6 +13,8 @@ export class User {
     sailingQualifications: string;
     skills: string;
     sailingExperience: string;
+
+    userName: string;
     email: string;
     password: string;
 }
