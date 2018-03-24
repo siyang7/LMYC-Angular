@@ -1,4 +1,6 @@
+import { FleetService } from './fleet.service';
 import { Component, OnInit } from '@angular/core';
+import { Boat, BoatStatus } from '../models/boat';
 
 @Component({
   selector: 'app-fleet',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FleetComponent implements OnInit {
 
-  constructor() { }
-
+  boats: Boat[];
+  constructor(private fleetService : FleetService) { }
   ngOnInit() {
+    this.getFleets();
   }
 
+  getFleets(): void {
+    this.fleetService.getFleets()
+        .subscribe(boats => this.boats = boats);
+
+  }
 }
