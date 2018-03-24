@@ -8,15 +8,20 @@ All notable changes to this project will be documented in this file.
 ## [0.0.5] - 2018-03-24
 
 ### Added
+- mock-boats.ts -CL
+- fleet.service.ts - CL
 - reservation.ts model - CL
 - user.ts model - CL
 - boat.ts model - CL
 - auth.service.ts - CL
 
 ### Updated
+- fleet.component.html (display boats and static informations) - CL
+- fleet.component.ts (get mock-boat data from service) - CL
+- fleet.service.ts (get mock data from moke-boat file) - CL
+- boat.ts (added an constructor) - CL
 - signup.components.ts (Added onSumbit methods) - CL
-- auth.service.ys (Added signup method which connets to api) - CL 
-
+- auth.service.ys (Added signup method which connets to api) - CL
 
 ## [0.0.4] - 2018-03-22
 

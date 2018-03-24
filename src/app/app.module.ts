@@ -1,3 +1,5 @@
+import { FleetService } from './fleet/fleet.service';
+import { AuthService } from './auth/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -37,7 +39,10 @@ import { HttpModule } from '@angular/http';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    FleetService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
