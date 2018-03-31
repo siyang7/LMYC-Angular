@@ -1,5 +1,9 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+
+import { User } from '../../models/user'
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
@@ -7,11 +11,29 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 	styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements onInit {
-
-	user = { email: '', password: '' };
+export class LoginComponent implements OnInit {
 
 	loginForm: FormGroup;
+
+	constructor (
+		private authService: AuthService,
+	    private router: Router
+	) {}
+
+	user: User = new User();
+
+	onSubmit() {
+		console.log(this.loginForm);
+		this.user.email = this.loginForm.get("email").value;
+		this.user.password = this.loginForm.get("password").value;
+
+		if (!this.user) { return; }
+		this.authService.signup(this.user)
+		// .then(newCartoonCharacter => {
+		//   this.myForm.reset();
+		//   this.router.navigate(['/home']);
+		// });
+	}
 
 	ngOnInit(): void {
 		this.loginForm = new FormGroup({
