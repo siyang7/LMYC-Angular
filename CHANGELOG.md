@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.6] - 2018-03-31
+
+### Added
+
+ - Login page onSubmit Function
+ - Login page validation
+
+### Updated
+ - Login page input formatting
+
 ## [0.0.5] - 2018-03-24
 
 ### Added
