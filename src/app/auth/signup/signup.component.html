@@ -1,75 +1,191 @@
-<h1>Signup</h1>
-<div class="col-md-8 col-md-offset-2">
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="signUpForm" class="form-login" (ngSubmit)="onSubmit()">
+	<h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
 
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" class="form-control" formControlName="firstName">
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" class="form-control" formControlName="lastName">
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" id="email" class="form-control" formControlName="email">
-    </div>
-    <div class="form-group">
-      <label for="userName">User Name</label>
-      <input type="text" id="userName" class="form-control" formControlName="userName">
-    </div>
-    <div class="form-group">
-      <label for="street">Street</label>
-      <input type="text" id="street" class="form-control" formControlName="street">
-    </div>
-    <div class="form-group">
-      <label for="city">City</label>
-      <input type="text" id="city" class="form-control" formControlName="city">
-    </div>
-    <div class="form-group">
-      <label for="postalCode">Postal Code</label>
-      <input type="text" id="postalCode" class="form-control" formControlName="postalCode">
-    </div>
-    <div class="form-group">
-      <label for="country">Country</label>
-      <input type="text" id="country" class="form-control" formControlName="country">
-    </div>
-    <div class="form-group">
-      <label for="homePhone">Home Phone</label>
-      <input type="text" id="homePhone" class="form-control" formControlName="homePhone">
-    </div>
-    <div class="form-group">
-      <label for="mobilePhone">Mobile Phone</label>
-      <input type="text" id="mobilePhone" class="form-control" formControlName="mobilePhone">
-    </div>
-    <div class="form-group">
-      <label for="workPhone">Work Phone</label>
-      <input type="text" id="workPhone" class="form-control" formControlName="workPhone">
-    </div>
-    <div class="form-group">
-      <label for="emergencyContactOnePhone">Emergency Contact One Phone</label>
-      <input type="text" id="emergencyContactOnePhone" class="form-control" formControlName="emergencyContactOnePhone">
-    </div>
-    <div class="form-group">
-      <label for="emergencyContactTwoPhone">Emergency Contact Two Phone</label>
-      <input type="text" id="emergencyContactTwoPhone" class="form-control" formControlName="emergencyContactTwoPhone">
-    </div>
-    <div class="form-group">
-      <label for="sailingQualifications">Sailing Qualifications</label>
-      <input type="text" id="sailingQualifications" class="form-control" formControlName="sailingQualifications">
-    </div>
-    <div class="form-group">
-      <label for="skills">Skills</label>
-      <input type="text" id="skills" class="form-control" formControlName="skills">
-    </div>
-    <div class="form-group">
-      <label for="sailingExperience">Sailing Experience</label>
-      <input type="text" id="sailingExperience" class="form-control" formControlName="sailingExperience">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" class="form-control" formControlName="password">
-    </div>
-    <button class="btn btn-primary" type="submit" >Submit</button>
-  </form>
+	<div class="form-group">
+		<label for="firstName" class="sr-only">Email address</label>
+		<input type="firstName" id="firstName" formControlName="firstName" class="form-control" placeholder="Email address" required>
+
+		<div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+			<div *ngIf="firstName.errors.required">
+				<p>Email is requried</p>
+			</div>
+		</div>
+	</div>
+	 <div class="form-group" *ngIf="true">
+		<label for="lastName">Last Name</label>
+		<input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last" required>
+	</div>
+	<div class="form-group">
+		<label for="email">Email</label>
+		<input type="text" id="email" class="form-control" formControlName="email">
+	</div>
+	<div class="form-group">
+		<label for="userName">User Name</label>
+		<input type="text" id="userName" class="form-control" formControlName="userName">
+	</div>
+	<div class="form-group">
+		<label for="street">Street</label>
+		<input type="text" id="street" class="form-control" formControlName="street">
+	</div>
+	<div class="form-group">
+		<label for="city">City</label>
+		<input type="text" id="city" class="form-control" formControlName="city">
+	</div>
+	<div class="form-group">
+		<label for="postalCode">Postal Code</label>
+		<input type="text" id="postalCode" class="form-control" formControlName="postalCode">
+	</div>
+	<div class="form-group">
+		<label for="country">Country</label>
+		<input type="text" id="country" class="form-control" formControlName="country">
+	</div>
+	<div class="form-group">
+		<label for="homePhone">Home Phone</label>
+		<input type="text" id="homePhone" class="form-control" formControlName="homePhone">
+	</div>
+	<div class="form-group">
+		<label for="mobilePhone">Mobile Phone</label>
+		<input type="text" id="mobilePhone" class="form-control" formControlName="mobilePhone">
+	</div>
+	<div class="form-group">
+		<label for="workPhone">Work Phone</label>
+		<input type="text" id="workPhone" class="form-control" formControlName="workPhone">
+	</div>
+	<div class="form-group">
+		<label for="emergencyContactOnePhone">Emergency Contact One Phone</label>
+		<input type="text" id="emergencyContactOnePhone" class="form-control" formControlName="emergencyContactOnePhone">
+	</div>
+	<div class="form-group">
+		<label for="emergencyContactTwoPhone">Emergency Contact Two Phone</label>
+		<input type="text" id="emergencyContactTwoPhone" class="form-control" formControlName="emergencyContactTwoPhone">
+	</div>
+	<div class="form-group">
+		<label for="sailingQualifications">Sailing Qualifications</label>
+		<input type="text" id="sailingQualifications" class="form-control" formControlName="sailingQualifications">
+	</div>
+	<div class="form-group">
+		<label for="skills">Skills</label>
+		<input type="text" id="skills" class="form-control" formControlName="skills">
+	</div>
+	<div class="form-group">
+		<label for="sailingExperience">Sailing Experience</label>
+		<input type="text" id="sailingExperience" class="form-control" formControlName="sailingExperience">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" id="password" class="form-control" formControlName="password">
+	</div>
+	<button class="btn btn-primary" type="submit">Submit</button>
+</form> -->
+
+<div>
+    <!-- <app-signup-form></app-signup-form> -->
+</div>
+
+
+
+<!-- <form [formGroup]="signUpForm" class="form-signUp" (ngSubmit)="onSubmit()">
+	<h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+
+	<div class="form-group">
+		<label for="firstName" class="sr-only">First Name</label>
+		<input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First" required>
+
+		<div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+			<div *ngIf="firstName.errors.required">
+				<p>First Name is requried</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="lastName" class="sr-only">Password</label>
+		<input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last" required>
+
+		<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+			<div *ngIf="lastName.errors.required">
+				<p>Last Name is requried</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="street" class="sr-only">Street</label>
+		<input type="text" id="street" formControlName="street" class="form-control" placeholder="Street" required>
+
+		<div *ngIf="street.invalid && (street.dirty || street.touched)" class="alert alert-danger">
+			<div *ngIf="street.errors.required">
+				<p>Street is requried</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="city" class="sr-only">City</label>
+		<input type="text" id="city" formControlName="city" class="form-control" placeholder="City" required>
+
+		<div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+			<div *ngIf="city.errors.required">
+				<p>City is requried</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="postalCode" class="sr-only">Postal Code</label>
+		<input type="text" id="postalCode" formControlName="postalCode" class="form-control" placeholder="Postal Code" required>
+
+		<div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)" class="alert alert-danger">
+			<div *ngIf="postalCode.errors.required">
+				<p>Postal code is requried</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="country" class="sr-only">Country</label>
+		<input type="country" id="country" formControlName="country" class="form-control" placeholder="Country" required>
+
+		<div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert alert-danger">
+			<div *ngIf="country.errors.required">
+				<p>Country is requried</p>
+			</div>
+			<div *ngIf="country.errors.pattern">
+				<p>Country is not valid</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="email" class="sr-only">Email address</label>
+		<input type="email" id="email" formControlName="email" class="form-control" placeholder="Email address" required>
+
+		<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+			<div *ngIf="email.errors.required">
+				<p>Email is requried</p>
+			</div>
+			<div *ngIf="email.errors.pattern">
+				<p>Email is not valid</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="password" class="sr-only">Password</label>
+		<input type="password" id="password" formControlName="password" class="form-control" placeholder="Password" required>
+
+		<div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+			<div *ngIf="password.errors.required">
+				<p>Password is requried</p>
+			</div>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="signUpForm.invalid" type="submit">Sign In</button>
+</form> -->
+
+
+<div>
+  <h2>Job Application for Heroes</h2>
+  <app-dynamic-form [questions]="questions"></app-dynamic-form>
 </div>

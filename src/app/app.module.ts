@@ -19,32 +19,36 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    FleetComponent,
-    FaqComponent,
-    AboutComponent,
-    MembershipComponent,
-    RulesComponent,
-    ContactComponent,
-    LoginComponent,
-    SignupComponent,
-    NavbarComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    AuthService,
-    FleetService
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		FleetComponent,
+		FaqComponent,
+		AboutComponent,
+		MembershipComponent,
+		RulesComponent,
+		ContactComponent,
+		LoginComponent,
+		SignupComponent,
+		NavbarComponent,
+		DynamicFormComponent,
+		DynamicFormQuestionComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		HttpModule,
+		ReactiveFormsModule
+	],
+	providers: [
+		AuthService,
+		FleetService
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
