@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.7] - 2018-04-05
+
+### Added
+
+ - Dynamic form-group component
+ - Dynamic question form component
+ - Question base
+ - Question control service
+ - Question sign up questions service
+ - Question textbox
+
+### Updated
+ - Sign up page forms dynamically added
+
 ## [0.0.6] - 2018-03-31
 
 ### Added

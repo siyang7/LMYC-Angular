@@ -1,0 +1,9 @@
+<div [formGroup]="form" class="form-group">
+	<label [attr.for]="question.key">{{question.label}}</label>
+
+	<div [ngSwitch]="question.controlType">
+        <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type">
+    </div>
+
+	<div class="errorMessage alert alert-danger" *ngIf="!isValid && (isDirty || isTouched)">{{question.label}} is required</div>
+</div>
