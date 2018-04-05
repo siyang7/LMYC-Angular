@@ -5,5 +5,5 @@
         <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type">
     </div>
 
-	<div class="errorMessage alert alert-danger" *ngIf="!isValid">{{question.label}} is required</div>
+	<div class="errorMessage alert alert-danger" *ngIf="!isValid && (isDirty || isTouched)">{{question.label}} is required</div>
 </div>
