@@ -1,3 +1,4 @@
+import { EventSesrvice } from './booking-calendar/event.servics';
 import { FleetService } from './fleet/fleet.service';
 import { AuthService } from './auth/auth.service';
 
@@ -19,6 +20,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BookingCalendarComponent } from './booking-calendar/booking-calendar.component';
+import { FullCalendarModule } from './../../node_modules/ng-fullcalendar'
 
 @NgModule({
   declarations: [
@@ -33,17 +36,20 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     SignupComponent,
     NavbarComponent,
+    BookingCalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule
   ],
   providers: [
     AuthService,
-    FleetService
+    FleetService,
+    EventSesrvice
   ],
   bootstrap: [AppComponent]
 })

@@ -5,15 +5,21 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.7] - 2018-04-05
+
+### Added
+ - booking-calendar components - CL
+ - event.service.ts - CL
+### Updated
+ - Fleet service now pulling from localhost - CL
 ## [0.0.6] - 2018-03-31
 
 ### Added
-
- - Login page onSubmit Function
- - Login page validation
+ - Login page onSubmit Function -BB
+ - Login page validation -BB
 
 ### Updated
- - Login page input formatting
+ - Login page input formatting - BB
 
 ## [0.0.5] - 2018-03-24
 
