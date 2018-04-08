@@ -1,5 +1,6 @@
 <div>
-	<form class="form" (ngSubmit)="onSubmit()" [formGroup]="form">
+	<!-- <form class="form" (ngSubmit)="onSubmit()" [formGroup]="form"> -->
+	<form class="form" [formGroup]="form">
 		<h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
 
 		<div *ngFor="let question of questions">
@@ -7,7 +8,7 @@
 		</div>
 
 		<div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid">Submit</button>
+			<button id="formButton" class="btn btn-lg btn-primary btn-block" (click)="buttonOnClick()" [disabled]="form.invalid">{{textButton}}</button>
 		</div>
 
 		<div *ngIf="payLoad">
@@ -15,4 +16,5 @@
 		</div>
 	</form>
 
+	<pre>{{ formData | json }}</pre>
 </div>

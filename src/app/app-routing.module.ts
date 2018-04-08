@@ -9,21 +9,29 @@ import { RulesComponent } from './rules/rules.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { SignupAddressComponent } from './auth/signup/forms/signup-address.component';
+import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
+import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
+import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, pathMatch: "full" },
-  { path: 'about', component: AboutComponent },
-  { path: 'our-fleet', component: FleetComponent },
-  { path: 'faq', component: FaqComponent },
-  { path: 'membership', component: MembershipComponent },
-  { path: 'rules-and-regulations', component: RulesComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
+	{ path: 'home', component: HomeComponent, pathMatch: "full" },
+	{ path: 'about', component: AboutComponent },
+	{ path: 'our-fleet', component: FleetComponent },
+	{ path: 'faq', component: FaqComponent },
+	{ path: 'membership', component: MembershipComponent },
+	{ path: 'rules-and-regulations', component: RulesComponent },
+	{ path: 'contact', component: ContactComponent },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'signup', component: SignupPersonalComponent },
+	{ path: 'signup/personal', component: SignupPersonalComponent },
+	{ path: 'signup/address', component: SignupAddressComponent },
+	{ path: 'signup/phone', component: SignupPhoneComponent },
+	{ path: 'signup/sailing', component: SignupSailingComponent }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule { }

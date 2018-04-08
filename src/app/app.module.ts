@@ -21,6 +21,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
+import { SignupAddressComponent } from './auth/signup/forms/signup-address.component';
+import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
+import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
+import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
 
 @NgModule({
 	declarations: [
@@ -36,7 +40,11 @@ import { DynamicFormQuestionComponent } from './components/dynamic-form-question
 		SignupComponent,
 		NavbarComponent,
 		DynamicFormComponent,
-		DynamicFormQuestionComponent
+		DynamicFormQuestionComponent,
+		SignupPersonalComponent,
+		SignupAddressComponent,
+		SignupPhoneComponent,
+		SignupSailingComponent
 	],
 	imports: [
 		BrowserModule,
@@ -47,7 +55,7 @@ import { DynamicFormQuestionComponent } from './components/dynamic-form-question
 	],
 	providers: [
 		AuthService,
-		FleetService
+		FleetService,
 	],
 	bootstrap: [AppComponent]
 })

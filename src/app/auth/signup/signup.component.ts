@@ -1,4 +1,5 @@
 import { AuthService } from './../auth.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
@@ -23,9 +24,7 @@ export class SignupComponent {
 		private authService: AuthService,
 		private router: Router,
 		service: SignUpQuestionsService
-	) {
-		this.questions = service.getQuestions();
-	}
+	) { }
 
 	newUser: User = new User();
 
@@ -58,18 +57,18 @@ export class SignupComponent {
 	// 		// });
 	// 	}
 
-	ngOnInit(): void {
-		this.signUpForm = new FormGroup({
-			'firstName': new FormControl(this.newUser.firstName, Validators.required),
-			'lastName': new FormControl(this.newUser.lastName, Validators.required),
-			'street': new FormControl(this.newUser.street, Validators.required),
-			'city': new FormControl(this.newUser.city, Validators.required),
-			'postalCode': new FormControl(this.newUser.postalCode, Validators.required),
-			'country': new FormControl(this.newUser.country, Validators.required),
-			'email': new FormControl(this.newUser.email, Validators.required),
-			'password': new FormControl(this.newUser.password, Validators.required)
-		});
-	}
+	// ngOnInit(): void {
+	// 	this.signUpForm = new FormGroup({
+	// 		'firstName': new FormControl(this.newUser.firstName, Validators.required),
+	// 		'lastName': new FormControl(this.newUser.lastName, Validators.required),
+	// 		'street': new FormControl(this.newUser.street, Validators.required),
+	// 		'city': new FormControl(this.newUser.city, Validators.required),
+	// 		'postalCode': new FormControl(this.newUser.postalCode, Validators.required),
+	// 		'country': new FormControl(this.newUser.country, Validators.required),
+	// 		'email': new FormControl(this.newUser.email, Validators.required),
+	// 		'password': new FormControl(this.newUser.password, Validators.required)
+	// 	});
+	// }
 
 	// 	get firstName() { return this.signUpForm.get('firstName'); }
 	//

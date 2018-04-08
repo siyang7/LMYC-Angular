@@ -1,28 +1,30 @@
-import { Component, Input, OnInit }  from '@angular/core';
-import { FormGroup }                 from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
-import { QuestionBase }              from '../questions/question-base';
-import { QuestionControlService }    from '../questions/question-control.service';
+import { QuestionBase } from '../questions/question-base';
+import { QuestionControlService } from '../questions/question-control.service';
 
 @Component({
-  selector: 'app-dynamic-form',
-  templateUrl: './dynamic-form.component.html',
-  styleUrls: ['./dynamic-form.component.css'],
-  providers: [ QuestionControlService ]
+	selector: 'app-dynamic-form',
+	templateUrl: './dynamic-form.component.html',
+	styleUrls: ['./dynamic-form.component.css'],
+	providers: [QuestionControlService]
 })
 export class DynamicFormComponent implements OnInit {
 
-  @Input() questions: QuestionBase<any>[] = [];
-  form: FormGroup;
-  payLoad = '';
+	@Input() questions: QuestionBase<any>[] = [];
+	form: FormGroup;
+	payLoad = ''
 
-  constructor(private qcs: QuestionControlService) {  }
+	constructor(
+		private qcs: QuestionControlService
+	) { }
 
-  ngOnInit() {
-    this.form = this.qcs.toFormGroup(this.questions);
-  }
+	ngOnInit() {
+		this.form = this.qcs.toFormGroup(this.questions);
+	}
 
-  onSubmit() {
-    this.payLoad = JSON.stringify(this.form.value);
-  }
+	buttonOnClick() {
+		this.payLoad = JSON.stringify(this.form.value);
+	}
 }
