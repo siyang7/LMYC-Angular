@@ -3,15 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../../components/questions/question-control.service';
-import { SignUpQuestionsService } from '../../../components/questions/signUpQuestionsService.service';
+import { SignUpQuestionsService } from '../../../components/questions/questionsService/signUpQuestionsService.service';
 
 import { User } from '../../../models/user'
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-signup-personal',
-	templateUrl: '../../../components/dynamic-form/dynamic-form.component.html',
-	styleUrls: ['../../../components/dynamic-form/dynamic-form.component.css'],
+	templateUrl: '../../../components/dynamic-form-group/dynamic-form.component.html',
+	styleUrls: ['../../../components/dynamic-form-group/dynamic-form.component.css'],
 	providers: [SignUpQuestionsService, QuestionControlService]
 })
 
@@ -19,6 +19,8 @@ export class SignupPersonalComponent implements OnInit {
 
 	questions: any[];
 	form: FormGroup;
+
+	title = "Register Yourself"
 	textButton = "Next"
 
 	constructor(

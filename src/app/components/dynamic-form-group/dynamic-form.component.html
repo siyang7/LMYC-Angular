@@ -1,7 +1,7 @@
 <div>
 	<!-- <form class="form" (ngSubmit)="onSubmit()" [formGroup]="form"> -->
 	<form class="form" [formGroup]="form">
-		<h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+		<h1 class="h3 mb-3 font-weight-normal text-center">{{title}}</h1>
 
 		<div *ngFor="let question of questions">
 			<app-question [question]="question" [form]="form"></app-question>

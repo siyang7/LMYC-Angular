@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { QuestionBase } from './question-base';
-import { TextQuestion } from './question-textbox';
+import { QuestionBase } from '../../questions/question-base'
+import { TextQuestion } from '../../questions/question-textbox'
 
-import { FormData, Personal } from '../../models/signUpFormData'
+// import { FormData, Personal } from '../../models/signUpFormData'
 
 @Injectable()
 export class SignUpQuestionsService {

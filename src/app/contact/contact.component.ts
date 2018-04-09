@@ -1,29 +1,58 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
+import { QuestionControlService } from '../components/questions/question-control.service';
+import { ContactQuetionsService } from '../components/questions/questionsService/ContactQuetionsService'
+
+import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+	selector: 'app-signup-sailing',
+	templateUrl: '../components/dynamic-form-group/dynamic-form.component.html',
+	styleUrls: ['../components/dynamic-form-group/dynamic-form.component.css'],
+	providers: [ContactQuetionsService, QuestionControlService]
 })
+
 export class ContactComponent implements OnInit {
 
-  contactForm: FormGroup;
+	questions: any[];
+	form: FormGroup;
 
-  constructor() {
-    console.log(this.contactForm);
-  }
+	title = "Contact Us"
+	textButton = "Submit"
 
-  ngOnInit() {
-    this.contactForm = new FormGroup({
-      firstName: new FormControl(null, Validators.required),
-      lastName: new FormControl(null, Validators.required),
-      email: new FormControl(null, [
-        Validators.required,
-        Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-      ]),
-      phone: new FormControl(null, null),
-    })
-  }
+	constructor(
+		private router: Router,
+		private qcs: QuestionControlService,
+		private ContactQuetionsService: ContactQuetionsService
+	) {
+		this.questions = ContactQuetionsService.getContactQuestions();
+	}
 
+
+	ngOnInit() {
+		this.form = this.qcs.toFormGroup(this.questions);
+		// this.sailingType = this.SignUpQuestionsService.getsailing();
+		console.log('sailing form loaded!');
+	}
+
+	save(form: any): boolean {
+		if (!this.form.valid) {
+			return false;
+		}
+
+		console.log(this.form.value)
+		return true;
+	}
+
+	goToNext(form: any) {
+
+	}
+
+	buttonOnClick() {
+		if (this.save(this.form)) {
+			this.router.navigate(['/login']);
+		}
+
+	}
 }

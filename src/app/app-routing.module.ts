@@ -8,7 +8,6 @@ import { MembershipComponent } from './membership/membership.component';
 import { RulesComponent } from './rules/rules.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { SignupAddressComponent } from './auth/signup/forms/signup-address.component';
 import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
