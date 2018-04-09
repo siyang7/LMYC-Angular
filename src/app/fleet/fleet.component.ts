@@ -1,4 +1,5 @@
-import { FleetService } from './fleet.service';
+import { FleetService } from './../services/fleet.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Boat, BoatStatus } from '../models/boat';
 

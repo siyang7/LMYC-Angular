@@ -1,6 +1,6 @@
-import { EventSesrvice } from './booking-calendar/event.servics';
-import { FleetService } from './fleet/fleet.service';
-import { AuthService } from './auth/auth.service';
+import { FleetService } from './services/fleet.service';
+import { AuthService } from './services/auth.service';
+import { EventService } from './services/event.servics';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -62,7 +62,7 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 	providers: [
 		AuthService,
     FleetService,
-    EventSesrvice
+    EventService
 	],
 	bootstrap: [AppComponent]
 

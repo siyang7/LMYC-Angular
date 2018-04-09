@@ -1,4 +1,4 @@
-import { AuthService } from './../../auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
@@ -33,7 +33,6 @@ export class SignupSailingComponent implements OnInit {
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
-		// this.sailingType = this.SignUpQuestionsService.getsailing();
 		console.log('sailing form loaded!');
 	}
 
