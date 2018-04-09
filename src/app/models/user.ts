@@ -1,20 +1,22 @@
 export class User {
-    firstName: string;
-    lastName: string; 
-    street: string;
-    city: string;
-    postalCode: string;
-    country: string;
-    mobilePhone: string;
-    homePhone: string;
-    workPhone: string;
-    emergencyContactOnePhone: string;
-    emergencyContactTwoPhone: string;
-    sailingQualifications: string;
-    skills: string;
-    sailingExperience: string;
+    constructor(
+        public firstName?: string,
+        public lastName?: string,
+        public street?: string,
+        public city?: string,
+        public postalCode?: string,
+        public country?: string,
+        public mobilePhone?: string,
+        public homePhone?: string,
+        public workPhone?: string,
+        public emergencyContactOnePhone?: string,
+        public emergencyContactTwoPhone?: string,
+        public sailingQualifications?: string,
+        public skills?: string,
+        public sailingExperience?: string, 
+        public userName?: string,
+        public email?: string,
+        public password?: string,
+    ){}
 
-    userName: string;
-    email: string;
-    password: string;
 }

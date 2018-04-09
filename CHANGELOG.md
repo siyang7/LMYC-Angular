@@ -4,14 +4,22 @@ All notable changes to this project will be documented in this file.
 #### Team members: Castiel Li (CL) , Bryan Brotonel(BB)
 
 ## [Unreleased]
-
 ## [0.0.7] - 2018-04-05
 
 ### Added
  - booking-calendar components - CL
  - event.service.ts - CL
+ - Dynamic form-group component
+ - Dynamic question form component
+ - Question base
+ - Question control service
+ - Question sign up questions service
+ - Question textbox
+
 ### Updated
  - Fleet service now pulling from localhost - CL
+ - Sign up page forms dynamically added
+
 ## [0.0.6] - 2018-03-31
 
 ### Added

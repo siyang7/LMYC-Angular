@@ -22,35 +22,41 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BookingCalendarComponent } from './booking-calendar/booking-calendar.component';
 import { FullCalendarModule } from './../../node_modules/ng-fullcalendar'
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    FleetComponent,
-    FaqComponent,
-    AboutComponent,
-    MembershipComponent,
-    RulesComponent,
-    ContactComponent,
-    LoginComponent,
-    SignupComponent,
-    NavbarComponent,
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		FleetComponent,
+		FaqComponent,
+		AboutComponent,
+		MembershipComponent,
+		RulesComponent,
+		ContactComponent,
+		LoginComponent,
+		SignupComponent,
+		NavbarComponent,
+		DynamicFormComponent,
+    DynamicFormQuestionComponent,
     BookingCalendarComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpModule,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		HttpModule,
     ReactiveFormsModule,
-    FullCalendarModule
-  ],
-  providers: [
-    AuthService,
+    FullCalendarModule,
+    
+	],
+	providers: [
+		AuthService,
     FleetService,
     EventSesrvice
-  ],
-  bootstrap: [AppComponent]
+	],
+	bootstrap: [AppComponent]
+    
 })
 export class AppModule { }

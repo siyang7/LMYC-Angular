@@ -1,6 +1,5 @@
 import { EventSesrvice } from './event.servics';
 import { CalendarComponent } from 'ng-fullcalendar';
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Options } from 'fullcalendar';
 

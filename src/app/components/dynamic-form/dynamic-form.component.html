@@ -1,0 +1,18 @@
+<div>
+	<form class="form" (ngSubmit)="onSubmit()" [formGroup]="form">
+		<h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+
+		<div *ngFor="let question of questions">
+			<app-question [question]="question" [form]="form"></app-question>
+		</div>
+
+		<div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid">Submit</button>
+		</div>
+
+		<div *ngIf="payLoad">
+			<strong>Saved the following values</strong><br>{{payLoad}}
+		</div>
+	</form>
+
+</div>

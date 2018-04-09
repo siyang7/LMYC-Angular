@@ -12,7 +12,7 @@ export class FleetService {
 
   constructor(
     private http: Http,) { }
-  private BASE_URL = "http://localhost:8888/api/BoatsAPI"; 
+  private BASE_URL = "https://localhost:44382/api/boats"; 
   getFleets(): Promise<Boat[]> {
       return this.http.get(this.BASE_URL)
         .toPromise()
