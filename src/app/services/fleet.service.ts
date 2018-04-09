@@ -2,7 +2,6 @@ import { BoatStatus } from './../models/boat';
 import { Injectable } from '@angular/core';
 import { Boat } from '../models/boat';
 import { of } from 'rxjs/observable/of';
-import { BOATS } from './mock-boats';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
