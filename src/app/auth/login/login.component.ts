@@ -1,52 +1,59 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+
+import { QuestionControlService } from '../../components/questions/question-control.service';
+import { SignUpQuestionsService } from '../../components/questions/signUpQuestionsService.service';
 
 import { User } from '../../models/user'
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
-	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.css']
+	templateUrl: '../../components/dynamic-form/dynamic-form.component.html',
+	styleUrls: ['../../components/dynamic-form/dynamic-form.component.css'],
+	providers: [SignUpQuestionsService, QuestionControlService]
 })
 
 export class LoginComponent implements OnInit {
 
-	loginForm: FormGroup;
+	questions: any[];
+	form: FormGroup;
+	textButton = "Login"
 
-	constructor (
+	constructor(
 		private authService: AuthService,
-	    private router: Router
-	) {}
-
-	user: User = new User();
-
-	onSubmit() {
-		console.log(this.loginForm);
-		this.user.email = this.loginForm.get("email").value;
-		this.user.password = this.loginForm.get("password").value;
-
-		if (!this.user) { return; }
-		this.authService.signup(this.user)
-		// .then(newCartoonCharacter => {
-		//   this.myForm.reset();
-		//   this.router.navigate(['/home']);
-		// });
+		private router: Router,
+		private qcs: QuestionControlService,
+		private SignUpQuestionsService: SignUpQuestionsService
+	) {
+		this.questions = SignUpQuestionsService.getSignInQuestions();
 	}
 
-	ngOnInit(): void {
-		this.loginForm = new FormGroup({
-			'email': new FormControl(this.user.email, [
-				Validators.required,
-				Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-			]),
-			'password': new FormControl(this.user.password, Validators.required)
-		});
+	ngOnInit() {
+		this.form = this.qcs.toFormGroup(this.questions);
+		console.log('Sign in form loaded!');
 	}
 
-	get email() { return this.loginForm.get('email'); }
+	save(form: any): boolean {
+		if (!this.form.valid) {
+			return false;
+		}
 
-	get password() { return this.loginForm.get('password'); }
+		console.log(this.form.value)
+		return true;
+	}
+
+	goToNext(form: any) {
+
+	}
+
+	buttonOnClick() {
+		if (this.save(this.form)) {
+			// Navigate to the address page
+			this.router.navigate(['/signup/address']);
+		}
+
+	}
 
 }

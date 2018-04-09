@@ -13,8 +13,10 @@ export class SignUpQuestionsService {
 	private isWorkFormValid: boolean = false;
 	private isAddressFormValid: boolean = false;
 
-	// Todo: get from a remote source of question metadata
-	// Todo: make asynchronous
+	// REGISTER
+
+	// TODO: get from a remote source of question metadata
+	// TODO: make asynchronous
 	getPersonalQuestions() {
 
 		// TODO: Sailing Quaifications Form
@@ -156,10 +158,6 @@ export class SignUpQuestionsService {
 
 	getSailingQuestions() {
 
-		// TODO: Sailing Quaifications Form
-		// TODO: Skills Form
-		// TODO: Sailing Experience Form
-		// TODO: Password Form
 		let questions: QuestionBase<any>[] = [
 
 			new TextQuestion({
@@ -178,6 +176,33 @@ export class SignUpQuestionsService {
 				key: 'sailingQualifications',
 				label: 'Sailing Qualifications',
 				order: 3
+			}),
+
+		];
+
+		return questions.sort((a, b) => a.order - b.order);
+	}
+
+	// SIGN IN
+
+	getSignInQuestions() {
+
+		let questions: QuestionBase<any>[] = [
+
+			new TextQuestion({
+				key: 'emailAddress',
+				label: 'Email',
+				type: 'email',
+				required: true,
+				order: 1
+			}),
+
+			new TextQuestion({
+				key: 'password',
+				label: 'Password',
+				type: 'password',
+				required: true,
+				order: 2
 			}),
 
 		];
