@@ -17,7 +17,7 @@ export class FleetComponent implements OnInit {
 
   getFleets(): void {
     this.fleetService.getFleets()
-        .subscribe(boats => this.boats = boats);
+        .then(boats => this.boats = boats);
 
   }
 }
