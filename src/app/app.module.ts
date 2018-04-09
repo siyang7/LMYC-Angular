@@ -1,6 +1,6 @@
-import { EventSesrvice } from './booking-calendar/event.servics';
-import { FleetService } from './fleet/fleet.service';
-import { AuthService } from './auth/auth.service';
+import { FleetService } from './services/fleet.service';
+import { AuthService } from './services/auth.service';
+
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,6 +24,7 @@ import { BookingCalendarComponent } from './booking-calendar/booking-calendar.co
 import { FullCalendarModule } from './../../node_modules/ng-fullcalendar'
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
+import { EventService } from './services/event.servics';
 
 @NgModule({
 	declarations: [
@@ -49,12 +50,11 @@ import { DynamicFormQuestionComponent } from './components/dynamic-form-question
 		HttpModule,
     ReactiveFormsModule,
     FullCalendarModule,
-    
 	],
 	providers: [
 		AuthService,
     FleetService,
-    EventSesrvice
+    EventService
 	],
 	bootstrap: [AppComponent]
     

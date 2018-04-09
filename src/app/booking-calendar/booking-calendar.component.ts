@@ -1,4 +1,6 @@
-import { EventSesrvice } from './event.servics';
+import { EventService } from './../services/event.servics';
+
+
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Options } from 'fullcalendar';
@@ -12,7 +14,7 @@ export class BookingCalendarComponent implements OnInit {
   calendarOptions: Options;
   displayEvent: any;
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
-  constructor(protected eventService: EventSesrvice) { }
+  constructor(protected eventService: EventService) { }
 
   ngOnInit() {
     this.eventService.getEvents().subscribe(data => {

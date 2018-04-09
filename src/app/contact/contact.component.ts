@@ -25,5 +25,8 @@ export class ContactComponent implements OnInit {
       phone: new FormControl(null, null),
     })
   }
+  onSubmit(){
+    
+  }
 
 }
