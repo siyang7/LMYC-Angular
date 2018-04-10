@@ -7,6 +7,7 @@ import { SignUpQuestionsService } from '../../components/questions/questionsServ
 
 import { User } from '../../models/user'
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
 	selector: 'app-login',

@@ -1,6 +1,6 @@
 import { FleetService } from './services/fleet.service';
 import { AuthService } from './services/auth.service';
-import { EventService } from './services/event.servics';
+import { EventService } from './services/event.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +17,6 @@ import { MembershipComponent } from './membership/membership.component';
 import { RulesComponent } from './rules/rules.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
-// import { SignupComponent } from './auth/signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BookingCalendarComponent } from './booking-calendar/booking-calendar.component';
