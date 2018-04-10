@@ -50,7 +50,7 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		SignupAddressComponent,
 		SignupPhoneComponent,
 		SignupSailingComponent,
-		
+
 	],
 	imports: [
 		BrowserModule,

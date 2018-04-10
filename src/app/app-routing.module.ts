@@ -14,8 +14,7 @@ import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
-	{ path: 'home', component: HomeComponent, pathMatch: "full" },
+	{ path: '', component: HomeComponent },
 	{ path: 'about', component: AboutComponent },
 	{ path: 'our-fleet', component: FleetComponent },
 	{ path: 'faq', component: FaqComponent },
