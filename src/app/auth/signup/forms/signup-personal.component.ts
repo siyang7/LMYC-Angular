@@ -1,41 +1,39 @@
-import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-import { QuestionControlService } from '../../components/questions/question-control.service';
-import { SignUpQuestionsService } from '../../components/questions/questionsService/signUpQuestionsService.service';
+import { QuestionControlService } from '../../../components/questions/question-control.service';
+import { SignUpQuestionsService } from '../../../components/questions/questionsService/signUpQuestionsService.service';
 
-import { User } from '../../models/user'
+import { User } from '../../../models/user'
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
-	selector: 'app-login',
-	templateUrl: '../../components/dynamic-form-group/dynamic-form.component.html',
-	styleUrls: ['../../components/dynamic-form-group/dynamic-form.component.css'],
+	selector: 'app-signup-personal',
+	templateUrl: '../../../components/dynamic-form-group/dynamic-form.component.html',
+	styleUrls: ['../../../components/dynamic-form-group/dynamic-form.component.css'],
 	providers: [SignUpQuestionsService, QuestionControlService]
 })
 
-export class LoginComponent implements OnInit {
+export class SignupPersonalComponent implements OnInit {
 
 	questions: any[];
 	form: FormGroup;
 
-	title = "Please Login"
-	textButton = "Login"
+	title = "Register Yourself"
+	textButton = "Next"
 
 	constructor(
-		private authService: AuthService,
 		private router: Router,
 		private qcs: QuestionControlService,
 		private SignUpQuestionsService: SignUpQuestionsService
 	) {
-		this.questions = SignUpQuestionsService.getSignInQuestions();
+		this.questions = SignUpQuestionsService.getPersonalQuestions();
 	}
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
-		console.log('Sign in form loaded!');
+		// this.personalType = this.SignUpQuestionsService.getPersonal();
+		console.log('Personal form loaded!');
 	}
 
 	save(form: any): boolean {
@@ -58,5 +56,4 @@ export class LoginComponent implements OnInit {
 		}
 
 	}
-
 }

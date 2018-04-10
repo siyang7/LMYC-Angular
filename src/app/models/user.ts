@@ -13,7 +13,7 @@ export class User {
         public emergencyContactTwoPhone?: string,
         public sailingQualifications?: string,
         public skills?: string,
-        public sailingExperience?: string, 
+        public sailingExperience?: string,
         public userName?: string,
         public email?: string,
         public password?: string,
