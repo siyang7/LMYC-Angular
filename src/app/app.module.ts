@@ -1,6 +1,6 @@
+import { EventService } from './services/event.servics';
 import { FleetService } from './services/fleet.service';
 import { AuthService } from './services/auth.service';
-import { EventService } from './services/event.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -54,8 +54,8 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		AppRoutingModule,
 		FormsModule,
 		HttpModule,
-    ReactiveFormsModule,
-    FullCalendarModule,
+    	ReactiveFormsModule,
+    	FullCalendarModule,
 
 	],
 	providers: [
