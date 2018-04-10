@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +12,7 @@ import { SignupAddressComponent } from './auth/signup/forms/signup-address.compo
 import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const routes: Routes = [
 	{ path: 'signup/personal', component: SignupPersonalComponent },
 	{ path: 'signup/address', component: SignupAddressComponent },
 	{ path: 'signup/phone', component: SignupPhoneComponent },
-	{ path: 'signup/sailing', component: SignupSailingComponent }
+	{ path: 'signup/sailing', component: SignupSailingComponent },
+	{ path: 'reservation', component: ReservationComponent }
 ];
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],

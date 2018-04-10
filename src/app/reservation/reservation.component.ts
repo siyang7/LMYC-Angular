@@ -1,23 +1,22 @@
-import { EventService } from './../services/event.servics';
-
 
 import { CalendarComponent } from 'ng-fullcalendar';
-import { Component, OnInit, ViewChild } from '@angular/core';
 import { Options } from 'fullcalendar';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
-  selector: 'app-booking-calendar',
-  templateUrl: './booking-calendar.component.html',
-  styleUrls: ['./booking-calendar.component.css']
+  selector: 'app-reservation',
+  templateUrl: './reservation.component.html',
+  styleUrls: ['./reservation.component.css']
 })
-export class BookingCalendarComponent implements OnInit {
+export class ReservationComponent implements OnInit {
   calendarOptions: Options;
   displayEvent: any;
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
-  constructor(protected eventService: EventService) { }
+  constructor(protected reservationService: ReservationService) { }
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe(data => {
+    this.reservationService.getEvents().subscribe(data => {
       this.calendarOptions = {
         editable: true,
         eventLimit: false,
@@ -62,5 +61,5 @@ export class BookingCalendarComponent implements OnInit {
     }
     this.displayEvent = model;
   }
-}
 
+}

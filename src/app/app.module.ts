@@ -1,6 +1,6 @@
+import { ReservationService } from './services/reservation.service';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SignUpQuestionsService } from './components/questions/questionsService/RegisterQuetionsService';
-import { EventService } from './services/event.servics';
 import { FleetService } from './services/fleet.service';
 import { AuthService } from './services/auth.service';
 
@@ -21,7 +21,6 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BookingCalendarComponent } from './booking-calendar/booking-calendar.component';
 import { FullCalendarModule } from './../../node_modules/ng-fullcalendar'
 import { DynamicFormComponent } from './components/dynamic-form-group/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
@@ -29,6 +28,7 @@ import { SignupAddressComponent } from './auth/signup/forms/signup-address.compo
 import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
 	declarations: [
@@ -45,11 +45,11 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		NavbarComponent,
 		DynamicFormComponent,
 		DynamicFormQuestionComponent,
-		BookingCalendarComponent,
 		SignupPersonalComponent,
 		SignupAddressComponent,
 		SignupPhoneComponent,
 		SignupSailingComponent,
+		ReservationComponent,
 		
 	],
 	imports: [
@@ -64,9 +64,7 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 	providers: [
 		AuthService,
     	FleetService,
-		EventService,
-		SignUpQuestionsService,
-		
+		ReservationService
 	],
 	bootstrap: [AppComponent]
 
