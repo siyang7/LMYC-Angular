@@ -1,11 +1,10 @@
+import { SignUpQuestionsService } from './../../components/questions/questionsService/RegisterQuetionsService';
+import { IUser } from './../../models/user';
 import { AuthService } from './../../services/auth.service';
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-import { SignUpQuestionsService } from '../../components/questions/signUpQuestionsService.service';
-
-import { User } from '../../models/user'
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,12 +22,11 @@ export class SignupComponent {
 	constructor(
 		private authService: AuthService,
 		private router: Router,
-		service: SignUpQuestionsService
+		private service: SignUpQuestionsService
 	) {
-		this.questions = service.getQuestions();
+		this.questions = service.getSignInQuestions();
 	}
 
-	newUser: User = new User();
 
 	// 	onSubmit() {
 	// 		console.log(this.signUpForm);
@@ -60,16 +58,16 @@ export class SignupComponent {
 	// 	}
 
 	ngOnInit(): void {
-		this.signUpForm = new FormGroup({
-			'firstName': new FormControl(this.newUser.firstName, Validators.required),
-			'lastName': new FormControl(this.newUser.lastName, Validators.required),
-			'street': new FormControl(this.newUser.street, Validators.required),
-			'city': new FormControl(this.newUser.city, Validators.required),
-			'postalCode': new FormControl(this.newUser.postalCode, Validators.required),
-			'country': new FormControl(this.newUser.country, Validators.required),
-			'email': new FormControl(this.newUser.email, Validators.required),
-			'password': new FormControl(this.newUser.password, Validators.required)
-		});
+		// this.signUpForm = new FormGroup({
+		// 	'firstName': new FormControl(this.newUser.firstName, Validators.required),
+		// 	'lastName': new FormControl(this.newUser.lastName, Validators.required),
+		// 	'street': new FormControl(this.newUser.street, Validators.required),
+		// 	'city': new FormControl(this.newUser.city, Validators.required),
+		// 	'postalCode': new FormControl(this.newUser.postalCode, Validators.required),
+		// 	'country': new FormControl(this.newUser.country, Validators.required),
+		// 	'email': new FormControl(this.newUser.email, Validators.required),
+		// 	'password': new FormControl(this.newUser.password, Validators.required)
+		// });
 	}
 
 	// 	get firstName() { return this.signUpForm.get('firstName'); }

@@ -1,23 +1,13 @@
-<<<<<<<
+
 import { AuthService } from '../../services/auth.service';
 import { IUser } from './../../models/user';
-=======
-import { IUser } from './../../models/user';
-
-
->>>>>>>
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-<<<<<<<
 import { QuestionControlService } from '../../components/questions/question-control.service';
 import { SignUpQuestionsService } from '../../components/questions/questionsService/signUpQuestionsService.service';
 
-=======
-
->>>>>>>
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
 	selector: 'app-login',
@@ -33,7 +23,7 @@ export class LoginComponent implements OnInit {
 
 	title = "Please Login"
 	textButton = "Login"
-
+	
 	constructor(
 		private authService: AuthService,
 		private router: Router,
@@ -43,7 +33,8 @@ export class LoginComponent implements OnInit {
 		this.questions = SignUpQuestionsService.getSignInQuestions();
 	}
 
-	user: IUser = new IUser();
+	ngOnInit(): void {
+	}
 
 	save(form: any): boolean {
 		if (!this.form.valid) {
