@@ -1,6 +1,8 @@
+import { SignupComponent } from './auth/signup/signup.component';
+import { SignUpQuestionsService } from './components/questions/questionsService/RegisterQuetionsService';
+import { EventService } from './services/event.servics';
 import { FleetService } from './services/fleet.service';
 import { AuthService } from './services/auth.service';
-import { EventService } from './services/event.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -39,7 +41,7 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		RulesComponent,
 		ContactComponent,
 		LoginComponent,
-		// SignupComponent,
+		SignupComponent,
 		NavbarComponent,
 		DynamicFormComponent,
 		DynamicFormQuestionComponent,
@@ -47,21 +49,23 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		SignupPersonalComponent,
 		SignupAddressComponent,
 		SignupPhoneComponent,
-		SignupSailingComponent
+		SignupSailingComponent,
+		
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
 		HttpModule,
-    ReactiveFormsModule,
-    FullCalendarModule,
+    	ReactiveFormsModule,
+    	FullCalendarModule,
 
 	],
 	providers: [
 		AuthService,
     FleetService,
-    EventService
+	EventService,
+	SignUpQuestionsService
 	],
 	bootstrap: [AppComponent]
 

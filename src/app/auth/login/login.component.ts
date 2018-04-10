@@ -5,9 +5,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { QuestionControlService } from '../../components/questions/question-control.service';
 import { SignUpQuestionsService } from '../../components/questions/questionsService/signUpQuestionsService.service';
 
-import { User } from '../../models/user'
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
 	selector: 'app-login',
@@ -23,7 +21,7 @@ export class LoginComponent implements OnInit {
 
 	title = "Please Login"
 	textButton = "Login"
-
+	errorMessage: string;
 	constructor(
 		private authService: AuthService,
 		private router: Router,
@@ -53,10 +51,18 @@ export class LoginComponent implements OnInit {
 
 	buttonOnClick() {
 		if (this.save(this.form)) {
-			// Navigate to the address page
-			this.router.navigate(['/signup/address']);
+			this.login();
 		}
-
 	}
 
+	login(){
+		this.authService.login(this.form.value.emailAddress, this.form.value.password, 'password')
+			.subscribe(res => {
+					this.router.navigate(['/']);
+			}, error => {
+				var results = error['_body'];
+				this.errorMessage = error
+			});
+	}
 }
+

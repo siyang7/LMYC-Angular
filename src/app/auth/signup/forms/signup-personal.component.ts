@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { QuestionControlService } from '../../../components/questions/question-control.service';
 import { SignUpQuestionsService } from '../../../components/questions/questionsService/signUpQuestionsService.service';
 
-import { User } from '../../../models/user'
+
 import { Router } from '@angular/router';
 
 @Component({
