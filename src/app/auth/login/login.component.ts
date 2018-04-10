@@ -1,11 +1,11 @@
 import { AuthService } from '../../services/auth.service';
+import { IUser } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../components/questions/question-control.service';
 import { SignUpQuestionsService } from '../../components/questions/questionsService/signUpQuestionsService.service';
 
-import { User } from '../../models/user'
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -33,10 +33,7 @@ export class LoginComponent implements OnInit {
 		this.questions = SignUpQuestionsService.getSignInQuestions();
 	}
 
-	ngOnInit() {
-		this.form = this.qcs.toFormGroup(this.questions);
-		console.log('Sign in form loaded!');
-	}
+	user: User = new User();
 
 	save(form: any): boolean {
 		if (!this.form.valid) {
