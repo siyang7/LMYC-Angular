@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
-	templateUrl: '../../components/dynamic-form-group/dynamic-form.component.html',
-	styleUrls: ['../../components/dynamic-form-group/dynamic-form.component.css'],
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.css'],
 	providers: [SignUpQuestionsService, QuestionControlService]
 })
 
@@ -19,9 +19,10 @@ export class LoginComponent implements OnInit {
 	questions: any[];
 	form: FormGroup;
 
-	title = "Please Login"
-	textButton = "Login"
+	titleTextString: string;
+	buttonTextString: string;
 	errorMessage: string;
+
 	constructor(
 		private authService: AuthService,
 		private router: Router,
@@ -33,6 +34,9 @@ export class LoginComponent implements OnInit {
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
+		this.titleTextString = "Please Login"
+		this.buttonTextString = "Login"
+
 		console.log('Sign in form loaded!');
 	}
 
@@ -55,14 +59,13 @@ export class LoginComponent implements OnInit {
 		}
 	}
 
-	login(){
+	login() {
 		this.authService.login(this.form.value.emailAddress, this.form.value.password, 'password')
 			.subscribe(res => {
-					this.router.navigate(['/']);
+				this.router.navigate(['/']);
 			}, error => {
 				var results = error['_body'];
 				this.errorMessage = error
 			});
 	}
 }
-
