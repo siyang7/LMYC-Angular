@@ -7,7 +7,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AuthService {
-  private BASE_URL = "https://localhost:8888";
+  private BASE_URL = "http://localhost:50198";
 
   accessToken = "";
 

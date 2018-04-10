@@ -9,7 +9,11 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-signup',
-	templateUrl: './signup.component.html',
+	template: `
+		<div>
+  			<app-dynamic-form [questions]="questions"></app-dynamic-form>
+		</div>
+	`,
 	styleUrls: ['./signup.component.css'],
 	providers: [SignUpQuestionsService]
 })

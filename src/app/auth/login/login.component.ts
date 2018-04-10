@@ -1,6 +1,4 @@
-
 import { AuthService } from '../../services/auth.service';
-import { IUser } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
@@ -23,7 +21,7 @@ export class LoginComponent implements OnInit {
 
 	title = "Please Login"
 	textButton = "Login"
-	
+	errorMessage: string;
 	constructor(
 		private authService: AuthService,
 		private router: Router,
@@ -33,7 +31,9 @@ export class LoginComponent implements OnInit {
 		this.questions = SignUpQuestionsService.getSignInQuestions();
 	}
 
-	ngOnInit(): void {
+	ngOnInit() {
+		this.form = this.qcs.toFormGroup(this.questions);
+		console.log('Sign in form loaded!');
 	}
 
 	save(form: any): boolean {
@@ -51,10 +51,18 @@ export class LoginComponent implements OnInit {
 
 	buttonOnClick() {
 		if (this.save(this.form)) {
-			// Navigate to the address page
-			this.router.navigate(['/signup/address']);
+			this.login();
 		}
-
 	}
 
+	login(){
+		this.authService.login(this.form.value.emailAddress, this.form.value.password, 'password')
+			.subscribe(res => {
+					this.router.navigate(['/']);
+			}, error => {
+				var results = error['_body'];
+				this.errorMessage = error
+			});
+	}
 }
+
