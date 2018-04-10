@@ -45,10 +45,6 @@ export class LoginComponent implements OnInit {
 		return true;
 	}
 
-	goToNext(form: any) {
-
-	}
-
 	buttonOnClick() {
 		if (this.save(this.form)) {
 			this.login();

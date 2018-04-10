@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 ### Updated
  - Updated the auth service (Enabled cors login) - CL
  - Updated the login.ts (Enable cors login) - CL
+ - Deleted the login.html (Use the dynamic form) - CL
 
 ## [0.0.7] - 2018-04-05
 

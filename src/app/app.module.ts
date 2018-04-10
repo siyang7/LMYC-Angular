@@ -63,9 +63,10 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 	],
 	providers: [
 		AuthService,
-    FleetService,
-	EventService,
-	SignUpQuestionsService
+    	FleetService,
+		EventService,
+		SignUpQuestionsService,
+		
 	],
 	bootstrap: [AppComponent]
 
