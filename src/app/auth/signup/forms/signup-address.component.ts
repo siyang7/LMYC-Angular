@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../../components/questions/question-control.service';
-import { SignUpQuestionsService } from '../../../components/questions/questionsService/signUpQuestionsService.service';
+import { RegisterQuestionsService } from '../../../components/questions/questionsService/registerQuestionsService.service';
 
 import { Address } from '../../../models/signUpFormData'
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 	selector: 'app-signup-address',
 	templateUrl: '../../../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../../../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [SignUpQuestionsService, QuestionControlService]
+	providers: [RegisterQuestionsService, QuestionControlService]
 })
 
 export class SignupAddressComponent implements OnInit {
@@ -19,15 +19,15 @@ export class SignupAddressComponent implements OnInit {
 	questions: any[];
 	form: FormGroup;
 
-	title = "Register your Address"
-	textButton = "Next"
+	formTitleText = "Register your Address"
+	formButtonText = "Next"
 
 	constructor(
 		private router: Router,
 		private qcs: QuestionControlService,
-		private SignUpQuestionsService: SignUpQuestionsService
+		private RegisterQuestionsService: RegisterQuestionsService
 	) {
-		this.questions = SignUpQuestionsService.getAddressQuestions();
+		this.questions = RegisterQuestionsService.getAddressQuestions();
 	}
 
 	ngOnInit() {
@@ -44,13 +44,8 @@ export class SignupAddressComponent implements OnInit {
 		return true;
 	}
 
-	goToNext(form: any) {
-
-	}
-
 	buttonOnClick() {
 		if (this.save(this.form)) {
-
 			// Navigate to the phone page
 			this.router.navigate(['/signup/phone']);
 		}
