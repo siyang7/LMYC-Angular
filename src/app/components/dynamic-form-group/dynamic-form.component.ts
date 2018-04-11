@@ -19,6 +19,8 @@ export class DynamicFormComponent implements OnInit {
 
 	form: FormGroup;
 
+	payload = '';
+
 	constructor(
 		private qcs: QuestionControlService,
 		private registerFormService: RegisterFormService,
@@ -27,5 +29,21 @@ export class DynamicFormComponent implements OnInit {
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
+	}
+
+	save(form: any): boolean {
+		if (!this.form.valid) {
+			return false;
+		}
+
+		console.log(this.form.value)
+		return true;
+	}
+
+	buttonOnClick() {
+		if (this.save(this.form)) {
+			this.registerFormService.submitForm(this.payload, this.form);
+		}
+
 	}
 }
