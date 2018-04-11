@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
-	templateUrl: './login.component.html',
+	template: ``,
 	styleUrls: ['./login.component.css'],
 	providers: [RegisterQuestionsService, QuestionControlService]
 })

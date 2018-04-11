@@ -1,8 +1,5 @@
 import { ReservationService } from './services/reservation.service';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SignUpQuestionsService } from './components/questions/questionsService/RegisterQuetionsService';
 import { RegisterQuestionsService } from './components/questions/questionsService/registerQuestionsService.service';
-import { EventService } from './services/event.servics';
 import { FleetService } from './services/fleet.service';
 import { AuthService } from './services/auth.service';
 
@@ -31,8 +28,11 @@ import { SignupAddressComponent } from './auth/signup/forms/signup-address.compo
 import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
-import { ReservationComponent } from './reservation/reservation.component';
-
+import { ReservationComponent, BookingDetailDialogComponent } from './reservation/reservation.component';
+import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatCardModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -53,7 +53,9 @@ import { ReservationComponent } from './reservation/reservation.component';
 		SignupPhoneComponent,
 		SignupSailingComponent,
 		ReservationComponent,
+		BookingDetailDialogComponent
 	],
+	entryComponents: [BookingDetailDialogComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -61,13 +63,18 @@ import { ReservationComponent } from './reservation/reservation.component';
 		HttpModule,
     	ReactiveFormsModule,
     	FullCalendarModule,
-
+		MatDialogModule,
+		MatCardModule,
+		MatButtonModule,
+		MatFormFieldModule,
+		MatInputModule,
+		BrowserAnimationsModule
 	],
 	providers: [
 		AuthService,
-    FleetService,
-	EventService,
-	SignUpQuestionsService
+		FleetService,
+		ReservationService
+
 	],
 	bootstrap: [AppComponent]
 
