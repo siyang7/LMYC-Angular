@@ -1,4 +1,4 @@
-import { SignUpQuestionsService } from './components/questions/questionsService/RegisterQuetionsService';
+import { RegisterQuestionsService } from './components/questions/questionsService/registerQuestionsService.service';
 import { EventService } from './services/event.servics';
 import { FleetService } from './services/fleet.service';
 import { AuthService } from './services/auth.service';
@@ -65,7 +65,7 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		AuthService,
     FleetService,
 	EventService,
-	SignUpQuestionsService
+	RegisterQuestionsService
 	],
 	bootstrap: [AppComponent]
 

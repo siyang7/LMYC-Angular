@@ -7,7 +7,8 @@
 		</div>
 
 		<div>
-			<button id="formButton" class="btn btn-lg btn-primary btn-block" (click)="buttonOnClick()" [disabled]="form.invalid">{{formButtonText}}</button>
+			<button id="formButton" class="btn btn-lg btn-primary btn-block"
+			(click)="buttonOnClick()" [disabled]="form.invalid">{{formButtonText}}</button>
 		</div>
 
 		<div *ngIf="payLoad">

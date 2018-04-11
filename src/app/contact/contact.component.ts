@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../components/questions/question-control.service';
-import { ContactQuetionsService } from '../components/questions/questionsService/ContactQuetionsService'
+import { ContactQuestionsService } from '../components/questions/questionsService/contactQuestionsService'
 
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 	selector: 'app-signup-sailing',
 	templateUrl: '../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [ContactQuetionsService, QuestionControlService]
+	providers: [ContactQuestionsService, QuestionControlService]
 })
 
 export class ContactComponent implements OnInit {
@@ -18,21 +18,20 @@ export class ContactComponent implements OnInit {
 	questions: any[];
 	form: FormGroup;
 
-	title = "Contact Us"
-	textButton = "Submit"
+	formTitleText = "Contact Us"
+	formButtonText = "Submit"
 
 	constructor(
 		private router: Router,
 		private qcs: QuestionControlService,
-		private ContactQuetionsService: ContactQuetionsService
+		private ContactQuestionsService: ContactQuestionsService
 	) {
-		this.questions = ContactQuetionsService.getContactQuestions();
+		this.questions = ContactQuestionsService.getContactQuestions();
 	}
 
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
-		// this.sailingType = this.SignUpQuestionsService.getsailing();
 		console.log('sailing form loaded!');
 	}
 
@@ -43,10 +42,6 @@ export class ContactComponent implements OnInit {
 
 		console.log(this.form.value)
 		return true;
-	}
-
-	goToNext(form: any) {
-
 	}
 
 	buttonOnClick() {

@@ -6,7 +6,7 @@ import { TextQuestion } from '../../questions/question-textbox'
 // import { FormData, Personal } from '../../models/signUpFormData'
 
 @Injectable()
-export class SignUpQuestionsService {
+export class RegisterQuestionsService {
 
 	private formData: FormData = new FormData();
 	private isPersonalFormValid: boolean = false;

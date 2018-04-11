@@ -4,7 +4,7 @@ import { QuestionBase } from '../question-base';
 import { TextQuestion } from '../question-textbox';
 
 @Injectable()
-export class ContactQuetionsService {
+export class ContactQuestionsService {
 
 	getContactQuestions() {
 

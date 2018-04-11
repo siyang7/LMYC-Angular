@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../components/questions/question-control.service';
-import { SignUpQuestionsService } from '../../components/questions/questionsService/signUpQuestionsService.service';
+import { RegisterQuestionsService } from '../../components/questions/questionsService/registerQuestionsService.service';
 
 import { Router } from '@angular/router';
 
@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 	selector: 'app-login',
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css'],
-	providers: [SignUpQuestionsService, QuestionControlService]
+	providers: [RegisterQuestionsService, QuestionControlService]
 })
 
 export class LoginComponent implements OnInit {
 
-	questions: any[];
 	form: FormGroup;
 
+	questions: any[];
 	titleTextString: string;
 	buttonTextString: string;
 	errorMessage: string;
@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
 		private authService: AuthService,
 		private router: Router,
 		private qcs: QuestionControlService,
-		private SignUpQuestionsService: SignUpQuestionsService
+		private RegisterQuestionsService: RegisterQuestionsService
 	) {
-		this.questions = SignUpQuestionsService.getSignInQuestions();
+		this.questions = RegisterQuestionsService.getSignInQuestions();
 	}
 
 	ngOnInit() {
