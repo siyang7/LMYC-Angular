@@ -9,18 +9,18 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
-	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.css'],
+	templateUrl: '../../components/dynamic-form-group/dynamic-form.component.html',
+	styleUrls: ['../../components/dynamic-form-group/dynamic-form.component.css'],
 	providers: [RegisterQuestionsService, QuestionControlService]
 })
 
 export class LoginComponent implements OnInit {
 
 	form: FormGroup;
-
 	questions: any[];
-	titleTextString: string;
-	buttonTextString: string;
+
+	formTitleText = "Login"
+	formButtonText = "Login"
 	errorMessage: string;
 
 	constructor(
