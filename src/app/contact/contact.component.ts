@@ -1,8 +1,8 @@
+import { ContactQuestionsService } from './../components/questions/questionsService/contactQuestionsService';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../components/questions/question-control.service';
-import { ContactQuestionsService } from '../components/questions/questionsService/contactQuestionsService'
 
 import { Router } from '@angular/router';
 

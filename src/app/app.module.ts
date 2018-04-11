@@ -1,6 +1,5 @@
-import { ReservationService } from './services/reservation.service';
-import { RegisterQuestionsService } from './components/questions/questionsService/registerQuestionsService.service';
 import { FleetService } from './services/fleet.service';
+import { ReservationService } from './services/reservation.service';
 import { AuthService } from './services/auth.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -53,7 +52,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		SignupAddressComponent,
 		SignupPhoneComponent,
 		SignupSailingComponent,
-		VolunteerComponent
+		VolunteerComponent,
 		ReservationComponent,
 		BookingDetailDialogComponent
 	],

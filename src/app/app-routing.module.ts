@@ -31,7 +31,7 @@ const routes: Routes = [
 	{ path: 'signup/address', component: SignupAddressComponent },
 	{ path: 'signup/phone', component: SignupPhoneComponent },
 	{ path: 'signup/sailing', component: SignupSailingComponent },
-	{ path: 'volunteer', component: VolunteerComponent }
+	{ path: 'volunteer', component: VolunteerComponent },
 	{ path: 'reservation', component: ReservationComponent }
 
 ];
