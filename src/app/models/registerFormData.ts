@@ -1,4 +1,4 @@
-export class FormData {
+export class RegisterFormData {
 	firstName: string = '';
 	lastName: string = '';
 	userName: string = '';
@@ -40,7 +40,9 @@ export class FormData {
 export class Personal {
 	firstName: string = '';
 	lastName: string = '';
+	userName: string = '';
 	email: string = '';
+	password: string = '';
 }
 
 export class Address {
@@ -52,11 +54,11 @@ export class Address {
 
 export class Phone {
 
-    mobilePhone: string = '';
-    homePhone: string = '';
-    workPhone: string = '';
-    emergencyContactOnePhone: string = '';
-    emergencyContactTwoPhone: string = '';
+	mobilePhone: string = '';
+	homePhone: string = '';
+	workPhone: string = '';
+	emergencyContactOnePhone: string = '';
+	emergencyContactTwoPhone: string = '';
 
 }
 

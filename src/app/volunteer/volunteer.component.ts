@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../components/questions/question-control.service';
-import { VolunteerQuestionService } from '../components/questions/questionsService/volunteerQuestion.service';
+import { VolunteerQuestionService } from '../components/questions/questionsService/volunteerQuestions.service';
 
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 	selector: 'app-volunteer',
 	templateUrl: '../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [VolunteerQuestionService, QuestionControlService]
+	providers: [VolunteerQuestionService, QuestionControlService, VolunteerQuestionService]
 })
 
 export class VolunteerComponent implements OnInit {

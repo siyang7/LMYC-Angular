@@ -3,15 +3,16 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../../components/questions/question-control.service';
 import { RegisterQuestionsService } from '../../../components/questions/questionsService/registerQuestionsService.service';
+import { RegisterFormService } from '../../../services/registerForm.service';
 
-import { FormData, Phone } from '../../../models/signUpFormData'
+import { RegisterFormData, Phone } from '../../../models/registerFormData'
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-signup-phone',
 	templateUrl: '../../../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../../../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [RegisterQuestionsService, QuestionControlService]
+	providers: [RegisterQuestionsService, QuestionControlService, RegisterFormService]
 })
 
 export class SignupPhoneComponent implements OnInit {
@@ -22,10 +23,13 @@ export class SignupPhoneComponent implements OnInit {
 	formTitleText = "Register your Phone Numbers"
 	formButtonText = "Next"
 
+	payload = ''
+
 	constructor(
 		private router: Router,
 		private qcs: QuestionControlService,
-		private RegisterQuestionsService: RegisterQuestionsService
+		private RegisterQuestionsService: RegisterQuestionsService,
+		private RegisterFormService: RegisterFormService
 	) {
 		this.questions = RegisterQuestionsService.getPhoneQuestions();
 	}
@@ -46,6 +50,8 @@ export class SignupPhoneComponent implements OnInit {
 
 	buttonOnClick() {
 		if (this.save(this.form)) {
+
+			this.RegisterFormService.submitForm(this.payload, this.form);
 
 			this.router.navigate(['/signup/sailing']);
 		}

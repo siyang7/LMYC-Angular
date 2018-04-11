@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../../components/questions/question-control.service';
 import { RegisterQuestionsService } from '../../../components/questions/questionsService/registerQuestionsService.service';
-
+import { RegisterFormService } from '../../../services/registerForm.service';
 
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 	selector: 'app-signup-personal',
 	templateUrl: '../../../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../../../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [RegisterQuestionsService, QuestionControlService]
+	providers: [RegisterQuestionsService, QuestionControlService, RegisterFormService]
 })
 
 export class SignupPersonalComponent implements OnInit {
@@ -19,13 +19,16 @@ export class SignupPersonalComponent implements OnInit {
 	questions: any[];
 	form: FormGroup;
 
-	formTitleText = "Register Yourself"
-	formButtonText = "Next"
+	formTitleText = "Register Yourself";
+	formButtonText = "Next";
+
+	payload = '';
 
 	constructor(
 		private router: Router,
 		private qcs: QuestionControlService,
-		private RegisterQuestionsService: RegisterQuestionsService
+		private RegisterQuestionsService: RegisterQuestionsService,
+		private RegisterFormService: RegisterFormService
 	) {
 		this.questions = RegisterQuestionsService.getPersonalQuestions();
 	}
@@ -46,6 +49,8 @@ export class SignupPersonalComponent implements OnInit {
 
 	buttonOnClick() {
 		if (this.save(this.form)) {
+			this.RegisterFormService.submitForm(this.payload, this.form);
+			
 			this.router.navigate(['/signup/address']);
 		}
 

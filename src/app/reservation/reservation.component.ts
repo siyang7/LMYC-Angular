@@ -1,7 +1,6 @@
 import { IReservation } from './../models/reservation';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
@@ -48,7 +47,7 @@ export class ReservationComponent implements OnInit {
     const dateObj = new Date();
     const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
     let data: any = [];
-    
+
     for(let reservation of this.reservations){
       let StartDate = reservation.StartDateTime;
       let EndDate = reservation.EndDateTime;
@@ -57,7 +56,7 @@ export class ReservationComponent implements OnInit {
       let StartYear = StartDate.getFullYear();
     }
   }
-  
+
   clickButton(model: any) {
     this.displayEvent = model;
   }
