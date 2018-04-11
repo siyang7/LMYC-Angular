@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 	selector: 'app-volunteer',
 	templateUrl: '../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [VolunteerQuestionService, QuestionControlService]
+	providers: [VolunteerQuestionService, QuestionControlService, VolunteerQuestionService]
 })
 
 export class VolunteerComponent implements OnInit {
