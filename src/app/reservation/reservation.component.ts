@@ -20,12 +20,14 @@ export class ReservationComponent implements OnInit {
       this.calendarOptions = {
         editable: true,
         eventLimit: false,
+        selectable: true,
         header: {
           left: 'prev,next today',
           center: 'title',
           right: 'month,agendaWeek,agendaDay,listMonth'
         },
         events: data
+
       };
     });
   }
@@ -39,13 +41,23 @@ export class ReservationComponent implements OnInit {
         start: model.event.start,
         end: model.event.end,
         title: model.event.title,
-        allDay: model.event.allDay
+        allDay: model.event.allDay,
         // other params
       },
       duration: {}
     }
     this.displayEvent = model;
   }
+
+  dayClick(model: any) {
+    var date = new Date(model.date);
+    alert("dayClicked! Day:" + date.getDay() + " Month " + date.getMonth() + "-------" + model.date.format() );
+  }
+
+  select(startDate: any, endDate : any) {
+    alert('selected ' + startDate.format() + ' to ' + endDate.format());
+  }
+
   updateEvent(model: any) {
     model = {
       event: {

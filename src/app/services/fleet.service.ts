@@ -11,13 +11,14 @@ export class FleetService {
 
   constructor(
     private http: Http,) { }
-  private BASE_URL = "https://localhost:44382/api/boats"; 
+  private BASE_URL = "http://localhost:50198"; 
   getFleets(): Promise<Boat[]> {
-      return this.http.get(this.BASE_URL)
+      return this.http.get(this.BASE_URL + "/api/BoatsAPI")
         .toPromise()
         .then(response => response.json() as Boat[])
         .catch(this.handleError);
   }
+
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
