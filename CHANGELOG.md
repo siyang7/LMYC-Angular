@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-#### Team members: Castiel Li (CL) , Bryan Brotonel(BB)
+#### Team members: Castiel Li (CL) , Bryan Brotonel(BB), Jason Chen(JC)
 
 ## [Unreleased]
 
@@ -27,6 +27,9 @@ All notable changes to this project will be documented in this file.
 ### Updated
  - Fleet service now pulling from localhost - CL
  - Sign up page forms dynamically added
+
+### Changed
+ - Fix login componenet errors - JC
 
 ## [0.0.6] - 2018-03-31
 
