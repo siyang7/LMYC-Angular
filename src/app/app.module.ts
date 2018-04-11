@@ -28,6 +28,7 @@ import { SignupAddressComponent } from './auth/signup/forms/signup-address.compo
 import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
+import { VolunteerComponent } from './volunteer/volunteer.component';
 import { ReservationComponent, BookingDetailDialogComponent } from './reservation/reservation.component';
 import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
@@ -52,6 +53,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		SignupAddressComponent,
 		SignupPhoneComponent,
 		SignupSailingComponent,
+		VolunteerComponent
 		ReservationComponent,
 		BookingDetailDialogComponent
 	],
