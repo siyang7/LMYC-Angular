@@ -50,7 +50,6 @@ import { ReservationComponent } from './reservation/reservation.component';
 		SignupPhoneComponent,
 		SignupSailingComponent,
 		ReservationComponent,
-		
 	],
 	imports: [
 		BrowserModule,

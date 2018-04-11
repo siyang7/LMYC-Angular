@@ -15,8 +15,7 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 import { ReservationComponent } from './reservation/reservation.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
-	{ path: 'home', component: HomeComponent, pathMatch: "full" },
+	{ path: '', component: HomeComponent },
 	{ path: 'about', component: AboutComponent },
 	{ path: 'our-fleet', component: FleetComponent },
 	{ path: 'faq', component: FaqComponent },
