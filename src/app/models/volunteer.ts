@@ -1,6 +1,6 @@
 export interface Volunteer {
     date: Date,
-    duration: var,
+    duration: any,
     description: string,
     classificationCodes: string,
 }

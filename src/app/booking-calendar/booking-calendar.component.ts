@@ -1,6 +1,5 @@
 import { EventService } from './../services/event.servics';
 
-
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Options } from 'fullcalendar';
@@ -63,4 +62,3 @@ export class BookingCalendarComponent implements OnInit {
     this.displayEvent = model;
   }
 }
-

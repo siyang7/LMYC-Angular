@@ -3,13 +3,13 @@ import { FormGroup } from '@angular/forms';
 
 import { QuestionBase } from '../questions/question-base';
 import { QuestionControlService } from '../questions/question-control.service';
-import { FormService } from '../../services/form.service'
+import { RegisterFormService } from '../../services/registerForm.service'
 
 @Component({
 	selector: 'app-dynamic-form',
 	templateUrl: './dynamic-form.component.html',
 	styleUrls: ['./dynamic-form.component.css'],
-	providers: [QuestionControlService, FormService]
+	providers: [QuestionControlService, RegisterFormService]
 })
 export class DynamicFormComponent implements OnInit {
 
@@ -21,7 +21,7 @@ export class DynamicFormComponent implements OnInit {
 
 	constructor(
 		private qcs: QuestionControlService,
-		private formService: FormService,
+		private registerFormService: RegisterFormService,
 	) {
 	}
 
