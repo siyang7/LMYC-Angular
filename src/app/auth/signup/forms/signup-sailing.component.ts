@@ -1,16 +1,16 @@
-import { AuthService } from '../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../../components/questions/question-control.service';
-import { SignUpQuestionsService } from '../../../components/questions/questionsService/signUpQuestionsService.service';
+import { RegisterQuestionsService } from '../../../components/questions/questionsService/registerQuestionsService.service';
+
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-signup-sailing',
 	templateUrl: '../../../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../../../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [SignUpQuestionsService, QuestionControlService]
+	providers: [RegisterQuestionsService, QuestionControlService]
 })
 
 export class SignupSailingComponent implements OnInit {
@@ -18,22 +18,21 @@ export class SignupSailingComponent implements OnInit {
 	questions: any[];
 	form: FormGroup;
 
-	title = "Register your Sailing Experience"
-	textButton = "Submit"
+	formTitleText = "Register your Sailing Experience"
+	formButtonText = "Submit"
 
 	constructor(
-		private authService: AuthService,
 		private router: Router,
 		private qcs: QuestionControlService,
-		private SignUpQuestionsService: SignUpQuestionsService
+		private RegisterQuestionsService: RegisterQuestionsService
 	) {
-		this.questions = SignUpQuestionsService.getSailingQuestions();
+		this.questions = RegisterQuestionsService.getSailingQuestions();
 	}
 
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
-		console.log('sailing form loaded!');
+		console.log('Sailing form loaded!');
 	}
 
 	save(form: any): boolean {
@@ -43,10 +42,6 @@ export class SignupSailingComponent implements OnInit {
 
 		console.log(this.form.value)
 		return true;
-	}
-
-	goToNext(form: any) {
-
 	}
 
 	buttonOnClick() {

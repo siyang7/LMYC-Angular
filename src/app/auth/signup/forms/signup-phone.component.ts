@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../../../components/questions/question-control.service';
-import { SignUpQuestionsService } from '../../../components/questions/questionsService/signUpQuestionsService.service';
+import { RegisterQuestionsService } from '../../../components/questions/questionsService/registerQuestionsService.service';
 
 import { FormData, Phone } from '../../../models/signUpFormData'
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 	selector: 'app-signup-phone',
 	templateUrl: '../../../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../../../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [SignUpQuestionsService, QuestionControlService]
+	providers: [RegisterQuestionsService, QuestionControlService]
 })
 
 export class SignupPhoneComponent implements OnInit {
@@ -19,21 +19,20 @@ export class SignupPhoneComponent implements OnInit {
 	questions: any[];
 	form: FormGroup;
 
-	title = "Register your Phone Numbers"
-	textButton = "Next"
+	formTitleText = "Register your Phone Numbers"
+	formButtonText = "Next"
 
 	constructor(
 		private router: Router,
 		private qcs: QuestionControlService,
-		private SignUpQuestionsService: SignUpQuestionsService
+		private RegisterQuestionsService: RegisterQuestionsService
 	) {
-		this.questions = SignUpQuestionsService.getPhoneQuestions();
+		this.questions = RegisterQuestionsService.getPhoneQuestions();
 	}
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
-		// this.phoneType = this.SignUpQuestionsService.getphone();
-		console.log('phone form loaded!');
+		console.log('Phone form loaded!');
 	}
 
 	save(form: any): boolean {
@@ -45,13 +44,9 @@ export class SignupPhoneComponent implements OnInit {
 		return true;
 	}
 
-	goToNext(form: any) {
-
-	}
-
 	buttonOnClick() {
 		if (this.save(this.form)) {
-			// Navigate to the address page
+
 			this.router.navigate(['/signup/sailing']);
 		}
 
