@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light navbar-expand-md justify-content-center">
+	<a class="navbar-brand" [routerLink]="['/']">
+    <img src="http://www.lmyc.ca/sites/all/themes/lmyc/images/logo.png" alt="LYMC">
+  </a>
+	<button #navbarToggler class="navbar-toggler navbar-toggler-right" type="button"
+        data-toggle="collapse" data-target="#collapsingNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+	<div class="navbar-collapse collapse w-100" id="collapsingNavbar">
+		<ul class="nav navbar-nav ml-auto w-100 justify-content-end" (click)="collapseNav()">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" routerLinkActive="active" [routerLink]="['/about']">About Page</a>
+					<a class="dropdown-item" routerLinkActive="active" [routerLink]="['/our-fleet']">Fleet</a>
+				</div>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/membership']">Membership</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/rules-and-regulations']">Rules and Regulations</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/faq']">FAQ</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/contact']">Contact</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/login']">Login</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/signup']">Sign Up</a>
+			</li>
+		</ul>
+	</div>
+</nav>
