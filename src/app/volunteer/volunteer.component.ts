@@ -1,38 +1,38 @@
-import { ContactQuestionsService } from './../components/questions/questionsService/contactQuestionsService';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { QuestionControlService } from '../components/questions/question-control.service';
+import { VolunteerQuestionService } from '../components/questions/questionsService/volunteerQuestion.service';
 
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-signup-sailing',
+	selector: 'app-volunteer',
 	templateUrl: '../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [ContactQuestionsService, QuestionControlService]
+	providers: [VolunteerQuestionService, QuestionControlService]
 })
 
-export class ContactComponent implements OnInit {
+export class VolunteerComponent implements OnInit {
 
-	questions: any[];
 	form: FormGroup;
+	questions: any[];
 
-	formTitleText = "Contact Us"
+	formTitleText = "Register Volunteers"
 	formButtonText = "Submit"
+	errorMessage: string;
 
 	constructor(
 		private router: Router,
 		private qcs: QuestionControlService,
-		private ContactQuestionsService: ContactQuestionsService
+		private VolunteerQuestionService: VolunteerQuestionService
 	) {
-		this.questions = ContactQuestionsService.getContactQuestions();
+		this.questions = VolunteerQuestionService.getVolunteerQuestions();
 	}
-
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
-		console.log('sailing form loaded!');
+		console.log('Volunteer form loaded!');
 	}
 
 	save(form: any): boolean {
@@ -45,9 +45,6 @@ export class ContactComponent implements OnInit {
 	}
 
 	buttonOnClick() {
-		if (this.save(this.form)) {
-			this.router.navigate(['/login']);
-		}
 
 	}
 }

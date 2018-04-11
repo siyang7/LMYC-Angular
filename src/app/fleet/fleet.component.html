@@ -19,8 +19,7 @@
         at the beginning of each sailing season and the boats are maintained on an ongoing basis throughout the year by assigned
         teams of members. Sails, outboards, rigging, docking lines etc are replaced on an ongoing basis as needed.</p>
 
-    <h2>OUR BOATS</h2>
-
+    <h2>Our Boat</h2>
     <ul>
         <li *ngFor="let boat of boats">
             <p>{{boat.boatName}}</p>
@@ -30,6 +29,8 @@
             <p>{{boat.boatMake}}</p>
             <p>{{boat.boatYear}}</p>
             <p>{{boat.creditsPerHourOfUsage}}</p>
+            <img src="data:image/jpg;base64,{{boat.boatPicture}}" class="img-thumbnail">
         </li>
     </ul>
+
 </div>
