@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
-		this.titleTextString = "Please Login"
-		this.buttonTextString = "Login"
+		this.formTitleText = "Please Login"
+		this.formButtonText = "Login"
 
 		console.log('Sign in form loaded!');
 	}
