@@ -1,9 +1,28 @@
+import { IReservation } from './../models/reservation';
+import { Http } from '@angular/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 @Injectable()
-export class EventService {
-    public getEvents(): Observable<any> {
+export class ReservationService {
+
+    constructor( private http: Http,) { }
+
+    private BASE_URL = "http://localhost:50198"; 
+  getReservations(): Promise<IReservation[]> {
+      return this.http.get(this.BASE_URL + "/api/BoatsAPI")
+        .toPromise()
+        .then(response => response.json() as IReservation[])
+        .catch(this.handleError);
+  }
+
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); 
+    return Promise.reject(error.message || error);
+  }
+
+    public getReservation(): Observable<any> {
         const dateObj = new Date();
         const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
         let data: any = [{

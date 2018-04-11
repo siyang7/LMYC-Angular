@@ -1,5 +1,5 @@
+import { ReservationService } from './services/reservation.service';
 import { RegisterQuestionsService } from './components/questions/questionsService/registerQuestionsService.service';
-import { EventService } from './services/event.servics';
 import { FleetService } from './services/fleet.service';
 import { AuthService } from './services/auth.service';
 
@@ -20,7 +20,6 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BookingCalendarComponent } from './booking-calendar/booking-calendar.component';
 import { FullCalendarModule } from './../../node_modules/ng-fullcalendar'
 import { DynamicFormComponent } from './components/dynamic-form-group/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
@@ -29,7 +28,11 @@ import { SignupAddressComponent } from './auth/signup/forms/signup-address.compo
 import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
-
+import { ReservationComponent, BookingDetailDialogComponent } from './reservation/reservation.component';
+import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatCardModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -45,13 +48,14 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		NavbarComponent,
 		DynamicFormComponent,
 		DynamicFormQuestionComponent,
-		BookingCalendarComponent,
 		SignupPersonalComponent,
 		SignupAddressComponent,
 		SignupPhoneComponent,
 		SignupSailingComponent,
-
+		ReservationComponent,
+		BookingDetailDialogComponent
 	],
+	entryComponents: [BookingDetailDialogComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -59,13 +63,18 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		HttpModule,
     	ReactiveFormsModule,
     	FullCalendarModule,
-
+		MatDialogModule,
+		MatCardModule,
+		MatButtonModule,
+		MatFormFieldModule,
+		MatInputModule,
+		BrowserAnimationsModule
 	],
 	providers: [
 		AuthService,
-    FleetService,
-	EventService,
-	RegisterQuestionsService
+		FleetService,
+		ReservationService
+
 	],
 	bootstrap: [AppComponent]
 

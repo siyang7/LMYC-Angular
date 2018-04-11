@@ -9,7 +9,7 @@ import { Boat, BoatStatus } from '../models/boat';
   styleUrls: ['./fleet.component.css']
 })
 export class FleetComponent implements OnInit {
-
+  imageData: any;
   boats: Boat[];
   constructor(private fleetService : FleetService) { }
   ngOnInit() {
@@ -19,6 +19,5 @@ export class FleetComponent implements OnInit {
   getFleets(): void {
     this.fleetService.getFleets()
         .then(boats => this.boats = boats);
-
   }
 }
