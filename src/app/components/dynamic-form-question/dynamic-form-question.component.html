@@ -2,14 +2,23 @@
 	<label [attr.for]="question.key">{{question.label}}</label>
 
 	<div [ngSwitch]="question.controlType">
-        <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type">
 
-		<select class="form-control" [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+		<div *ngIf="question.controlType == 'textbox'" [ngSwitch]="question.type">
+			<input class="form-control" *ngSwitchCase="'number'"
+				[formControlName]="question.key" [id]="question.key" [type]="question.type" [min]="question.min" [max]="question.max">
+
+			<input class="form-control" *ngSwitchDefault
+				[formControlName]="question.key" [id]="question.key" [type]="question.type">
+		</div>
+
+		<select class="form-control" [id]="question.key" *ngSwitchCase="'dropdown'"
+			[formControlName]="question.key">
 		  <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
 		</select>
 
     </div>
 
-	<div class="errorMessage alert alert-danger" *ngIf="!isValid && (isDirty || isTouched)">{{question.label}} is required</div>
+	<div class="errorMessage alert alert-danger" *ngIf="!isValid && (isDirty || isTouched)">
+		{{question.label}} is required</div>
 
 </div>
