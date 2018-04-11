@@ -29,6 +29,7 @@ import { SignupAddressComponent } from './auth/signup/forms/signup-address.compo
 import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
+import { VolunteerComponent } from './volunteer/volunteer.component';
 
 @NgModule({
 	declarations: [
@@ -50,7 +51,7 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 		SignupAddressComponent,
 		SignupPhoneComponent,
 		SignupSailingComponent,
-
+		VolunteerComponent
 	],
 	imports: [
 		BrowserModule,
