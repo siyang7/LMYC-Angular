@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 #### Team members: Castiel Li (CL) , Bryan Brotonel(BB), Jason Chen(JC)
 
 ## [Unreleased]
+
+## [0.0.8] - 2018-04-10
+
+### Updated
+ - Updated the auth service (Enabled cors login) - CL
+ - Updated the login.ts (Enable cors login) - CL
+ - Deleted the login.html (Use the dynamic form) - CL
+
 ## [0.0.7] - 2018-04-05
 
 ### Added
