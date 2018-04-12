@@ -28,7 +28,6 @@ import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import { BookingCalendarComponent } from './booking-calendar/booking-calendar.component'
 
 @NgModule({
 	declarations: [
@@ -48,11 +47,10 @@ import { BookingCalendarComponent } from './booking-calendar/booking-calendar.co
 		VolunteerComponent,
 		ReservationComponent,
 		BookingDetailDialogComponent,
-		BookingCalendarComponent,
 		newBookingDialogComponent
 	],
 	entryComponents: [BookingDetailDialogComponent,
-						newBookingDialogComponent,],
+		newBookingDialogComponent,],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -61,7 +59,7 @@ import { BookingCalendarComponent } from './booking-calendar/booking-calendar.co
 		HttpModule,
 		ReactiveFormsModule,
 		BrowserAnimationsModule,
-    	FullCalendarModule,
+		FullCalendarModule,
 		MatDialogModule,
 		MatButtonModule,
 		MatFormFieldModule,
