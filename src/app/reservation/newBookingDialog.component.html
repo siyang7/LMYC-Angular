@@ -1,39 +1,41 @@
 <h1 mat-dialog-title>New Booking</h1>
 <div mat-dialog-content>
-    <mat-form-field>
-        <input matInput [min]="minDate" [matDatepicker]="startTicker" placeholder="Please Pick a start date">
-        <mat-datepicker-toggle matSuffix [for]="startTicker"></mat-datepicker-toggle>
-        <mat-datepicker #startTicker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-select placeholder="Select Start Hour">
-        <mat-option *ngFor="let num of hour" [value]="num">
-          {{ num }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput [min]="minDate" [matDatepicker]="endPicker" placeholder="Please Pick a end date">
-        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
-        <mat-datepicker #endPicker></mat-datepicker>
-    </mat-form-field> 
-
-    <mat-form-field>
-      <mat-select placeholder="Select End Hour">
-        <mat-option *ngFor="let num of hour" [value]="num">
-          {{ num }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
     <label>
-    Date Time Range:
-        <input [(ngModel)]="invalidMoment" [min]="min" [max]="max" [owlDateTimeTrigger]="dt11" [owlDateTime]="dt11" #dateTime="ngModel">
-        <owl-date-time #dt11></owl-date-time>
+    Booking Date Time:
+        <input 
+            [(ngModel)]="dateRange"
+            [min]="min"
+            [max]="max"
+            [owlDateTimeTrigger]="dt11" 
+            [owlDateTime]="dt11" 
+            [selectMode]="'range'"
+            #dateTime="ngModel">
+        <owl-date-time #dt11
+            (afterPickerClosed)="afterPickerClosed()"></owl-date-time>
     </label>
+
+    <mat-form-field>
+        <textarea matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" placeholder="Non-Member Crews" [(ngModel)]="nonMemberCrews"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" placeholder="Itinerary" [(ngModel)]="Itinerary"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Member Crew" [formControl]="memberCrewControl" [(value)]="selected" multiple>
+            <mat-optgroup *ngFor="let type of memberTypes" [label]="type.name" [disabled]="type.disabled" mutiple>
+                <mat-option *ngFor="let user of type.user" [value]="user.value">
+                    {{ user.viewValue }}
+                </mat-option>
+    
+            </mat-optgroup>
+        </mat-select>
+    </mat-form-field>
+
+    <p>You selected: {{selected}}</p>
+
 </div>
 <div mat-dialog-actions>
-    <button mat-button center [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+    <button mat-button center (click)="onSubmit()" cdkFocusInitial>Ok</button>
 </div>

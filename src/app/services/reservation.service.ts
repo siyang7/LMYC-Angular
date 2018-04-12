@@ -1,3 +1,4 @@
+import { IRoleMember } from './../models/IRoleMember';
 import { IReservation } from './../models/reservation';
 import { Http, Response } from '@angular/http';
 import { Inject, Injectable } from '@angular/core';
@@ -15,8 +16,16 @@ export class ReservationService {
     
     getReservations(): Observable<IReservation[]> {
         return this.http
-            .get(this.BASE_URL + '/api/Bookingsapi')
-            .map((res: Response) => <IReservation[]>res.json())
+          .get(this.BASE_URL + '/api/Bookingsapi')
+          .map((res: Response) => <IReservation[]>res.json())
+          .catch((err: Error) => this.handleError(Error))
+    }
+
+    getMembers():Observable<IRoleMember[]> {
+      return this.http
+        .get(this.BASE_URL + '/api/MembersAPI')
+        .map((res: Response) => <IRoleMember[]>res.json())
+        .catch((err: Error) => this.handleError(Error))
     }
 
   private handleError(error: any): Promise<any> {

@@ -17,7 +17,6 @@ export interface IReservation {
         firstName: string,
         lastName: string,
         memberCrews: CrewMember[]
-
 }
 
 class CrewMember{

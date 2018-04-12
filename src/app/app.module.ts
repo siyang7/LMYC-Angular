@@ -28,11 +28,9 @@ import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.compo
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { ReservationComponent, BookingDetailDialogComponent, newBookingDialogComponent } from './reservation/reservation.component';
 import { MatDialogModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelect, MatSelectModule, } from '@angular/material';
-import { MatCardModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 @NgModule({
 	declarations: [
@@ -69,12 +67,10 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 		BrowserAnimationsModule,
     	FullCalendarModule,
 		MatDialogModule,
-		MatCardModule,
 		MatButtonModule,
 		MatFormFieldModule,
 		MatInputModule,
 		HttpClientModule,
-		MatDatepickerModule,
 		MatNativeDateModule,
 		MatSelectModule,
 		OwlDateTimeModule,
