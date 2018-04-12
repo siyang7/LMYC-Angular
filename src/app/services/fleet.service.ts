@@ -11,11 +11,13 @@ export class FleetService {
 
   constructor(
     private http: Http,) { }
-  private BASE_URL = "http://localhost:50198"; 
+  private BASE_URL = "https://lmyc-server.azurewebsites.net";
   getFleets(): Promise<Boat[]> {
       return this.http.get(this.BASE_URL + "/api/BoatsAPI")
         .toPromise()
-        .then(response => response.json() as Boat[])
+        .then(response => {
+            console.log(response);
+            response.json() as Boat[]})
         .catch(this.handleError);
   }
 

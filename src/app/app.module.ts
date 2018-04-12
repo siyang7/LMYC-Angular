@@ -26,7 +26,6 @@ import { ReservationComponent, BookingDetailDialogComponent, newBookingDialogCom
 import { MatDialogModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelect, MatSelectModule, } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MemberRowComponent } from './membersPage/member-row/member-row.component';
 import { MembersTableComponent } from './membersPage/members-table/members-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -50,7 +49,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 		ReservationComponent,
 		BookingDetailDialogComponent,
 		newBookingDialogComponent,
-		MemberRowComponent,
 		MembersTableComponent,
 	],
 	entryComponents: [BookingDetailDialogComponent,
