@@ -1,6 +1,6 @@
 import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators  } from "@angular/forms";
 
 import { Router } from '@angular/router';
 
@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-    form: FormGroup;
 	loginForm: FormGroup;
 
     errorMessage: string;
@@ -34,23 +33,15 @@ export class LoginComponent implements OnInit {
 		});
 	}
 
-	save(form: any): boolean {
-		if (!form.valid) {
-			return false;
-		}
-
-		console.log(form.value)
-		return true;
-	}
-
 	onSubmit() {
-		if (this.save(this.form)) {
+		alert("OnSubmit")
+		if (this.loginForm.valid) {
 			this.login();
 		}
 	}
 
 	login() {
-		this.authService.login(this.form.value.emailAddress, this.form.value.password, 'password')
+		this.authService.login(this.loginForm.value.emailAddress, this.loginForm.value.password, 'password')
 			.subscribe(res => {
 				this.router.navigate(['/']);
 			}, error => {
