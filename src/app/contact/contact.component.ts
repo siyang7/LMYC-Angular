@@ -7,7 +7,7 @@ import { QuestionControlService } from '../components/questions/question-control
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-signup-sailing',
+	selector: 'app-signup-contact',
 	templateUrl: '../components/dynamic-form-group/dynamic-form.component.html',
 	styleUrls: ['../components/dynamic-form-group/dynamic-form.component.css'],
 	providers: [ContactQuestionsService, QuestionControlService]

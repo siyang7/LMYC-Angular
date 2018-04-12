@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
 import { HttpModule } from '@angular/http';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -21,10 +21,6 @@ import { FullCalendarModule } from './../../node_modules/ng-fullcalendar'
 import { DynamicFormComponent } from './components/dynamic-form-group/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SignupAddressComponent } from './auth/signup/forms/signup-address.component';
-import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
-import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
-import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { ReservationComponent, BookingDetailDialogComponent, newBookingDialogComponent } from './reservation/reservation.component';
 import { MatDialogModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelect, MatSelectModule, } from '@angular/material';
@@ -47,10 +43,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 		NavbarComponent,
 		DynamicFormComponent,
 		DynamicFormQuestionComponent,
-		SignupPersonalComponent,
-		SignupAddressComponent,
-		SignupPhoneComponent,
-		SignupSailingComponent,
 		VolunteerComponent,
 		ReservationComponent,
 		BookingDetailDialogComponent,
@@ -61,7 +53,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		FormsModule,
+		FormsModule,                               // <========== Add this line!
+		ReactiveFormsModule,                        // <========== Add this line!
 		HttpModule,
 		ReactiveFormsModule,
 		BrowserAnimationsModule,

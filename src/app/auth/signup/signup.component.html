@@ -1,3 +1,144 @@
-<div>
-		<app-signup-personal></app-signup-personal>
+<div class="container">
+
+	<!-- PERSONAL -->
+	<form #personalForm="ngForm" novalidate>
+		<div>
+			<h4 class="head text-center">{{personalTitle}}</h4>
+			<br/>
+			<div class='row'>
+				<div class="form-group">
+					<label class="control-label" for="firstname">First Name</label>
+					<input class="form-control input-md" #firstname="ngModel" required name="firstname" type="text" placeholder="First Name" [(ngModel)]="personal.firstName">
+					<div class="alert alert-danger" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">First Name is required</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="lastname">Last Name</label>
+					<input class="form-control input-md" #lastname="ngModel" required name="lastname" type="text" placeholder="Last Name" [(ngModel)]="personal.lastName">
+					<div class="alert alert-danger" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">Last Name is required</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="email">Email</label>
+					<input class="form-control input-md" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" name="email" type="email" placeholder="Email" [(ngModel)]="personal.email">
+					<div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">Email is required and must be valid</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="email">Password</label>
+					<input class="form-control input-md" #password="ngModel" required name="password" type="password" placeholder="Password" [(ngModel)]="personal.password">
+					<div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">Password is required</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<form #addressForm="ngForm" novalidate>
+		<div>
+			<h4 class="head text-center">{{addressTitle}}</h4>
+			<br/>
+			<div class='row'>
+				<div class="form-group">
+					<label class="control-label" for="street">Street</label>
+					<input class="form-control input-md" #street="ngModel" required name="street" type="text" placeholder="Street" [(ngModel)]="address.street">
+					<div class="alert alert-danger" *ngIf="street.invalid && (street.dirty || street.touched)">Street is required</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="city">City</label>
+					<input class="form-control input-md" #city="ngModel" required name="city" type="text" placeholder="City" [(ngModel)]="address.city">
+					<div class="alert alert-danger" *ngIf="city.invalid && (city.dirty || city.touched)">Cityis required</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="country">Country</label>
+					<input class="form-control input-md" #country="ngModel" required name="country" type="text" placeholder="Country" [(ngModel)]="address.country">
+					<div class="alert alert-danger" *ngIf="country.invalid && (country.dirty || country.touched)">Country is required</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="postalCode">Postal Code</label>
+					<input class="form-control input-md" #postalCode="ngModel" required name="postalCode" type="text" placeholder="Postal Code" [(ngModel)]="address.postalCode">
+					<div class="alert alert-danger" *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)">Country is required</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<form #phoneForm="ngForm" novalidate>
+		<div>
+			<h4 class="head text-center">{{phoneTitle}}</h4>
+			<br/>
+			<div class='row'>
+				<div class="form-group">
+					<label class="control-label" for="mobilePhone">Mobile Phone</label>
+					<input class="form-control input-md" #mobilePhone="ngModel" required name="mobilePhone" type="tel" placeholder="mobilePhone" [(ngModel)]="phone.mobilePhone">
+					<div class="alert alert-danger" *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)">Mobile Phone is required</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="homePhone">Home Phone</label>
+					<input class="form-control input-md" #homePhone="ngModel" required name="homePhone" type="tel" placeholder="homePhone" [(ngModel)]="phone.homePhone">
+					<div class="alert alert-danger" *ngIf="homePhone.invalid && (homePhone.dirty || homePhone.touched)">Home Phone is required</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="emergencyContactOnePhone">Emergency Contact Phone One</label>
+					<input class="form-control input-md" #emergencyContactOnePhone="ngModel" required name="emergencyContactOnePhone" type="tel" placeholder="emergencyContactOnePhone" [(ngModel)]="phone.emergencyContactOnePhone">
+					<div class="alert alert-danger" *ngIf="emergencyContactOnePhone.invalid && (emergencyContactOnePhone.dirty || emergencyContactOnePhone.touched)">Emergency Contact Phone One is required</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="emergencyContactTwoPhone">Emergency Contact Phone Two</label>
+					<input class="form-control input-md" #emergencyContactTwoPhone="ngModel" required name="emergencyContactTwoPhone" type="tel" placeholder="Postal Code" [(ngModel)]="phone.emergencyContactTwoPhone">
+					<div class="alert alert-danger" *ngIf="emergencyContactTwoPhone.invalid && (emergencyContactTwoPhone.dirty || emergencyContactTwoPhone.touched)">Emergency Contact Phone Two is required</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="workPhone">Emergency Contact Phone Two</label>
+					<input class="form-control input-md" #workPhone="ngModel" required name="workPhone" type="tel" placeholder="Postal Code" [(ngModel)]="phone.workPhone">
+					<div class="alert alert-danger" *ngIf="workPhone.invalid && (workPhone.dirty || workPhone.touched)">Work Phone is required</div>
+				</div>
+
+				<!-- TODO: Add work phone -->
+
+			</div>
+		</div>
+	</form>
+
+	<form #sailingForm="ngForm" novalidate>
+		<div>
+			<h4 class="head text-center">{{sailingTitle}}</h4>
+			<br/>
+			<div class='row'>
+
+				<!-- TODO: Dropdown list of Qualifications -->
+				<div class="form-group">
+					<label class="control-label" for="sailingQualifications">Sailing Qualifications</label>
+					<input class="form-control input-md" #sailingQualifications="ngModel" required name="sailingQualifications" type="tel" placeholder="sailingQualifications" [(ngModel)]="sailing.sailingQualifications">
+					<div class="alert alert-danger" *ngIf="sailingQualifications.invalid && (sailingQualifications.dirty || sailingQualifications.touched)">Sailing Qualifications is required</div>
+				</div>
+
+				<!-- TODO: Dropdown list of skills -->
+				<div class="form-group">
+					<label class="control-label" for="skills">Skills</label>
+					<input class="form-control input-md" #skills="ngModel" required name="skills" type="text" placeholder="skills" [(ngModel)]="sailing.skills">
+					<div class="alert alert-danger" *ngIf="skills.invalid && (skills.dirty || skills.touched)">Skills is required</div>
+				</div>
+
+				<!-- TODO: Dropdown list of experiences (Beginner, Advanced) -->
+				<div class="form-group">
+					<label class="control-label" for="sailingExperience">Sailing Experience</label>
+					<input class="form-control input-md" #sailingExperience="ngModel" required name="sailingExperience" type="tel" placeholder="sailingExperience" [(ngModel)]="sailing.sailingExperience">
+					<div class="alert alert-danger"  *ngIf="sailingExperience.invalid && (sailingExperience.dirty || sailingExperience.touched)">sailingExperience is required</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+
+
+
+	<div class="form-group text-center">
+		<button class="btn btn-success btn-outline-rounded btn-info" (click)="submitRegistrationFrom(personalForm, addressForm, phoneForm, sailingForm)"> Next</button>
+	</div>
+
+	<pre>{{ RegisterFormData | json }}</pre>
 </div>

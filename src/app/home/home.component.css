@@ -1,0 +1,35 @@
+.bg-no-overlay {
+    background: url('assets/images/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 650px;
+    padding-top: 50px;
+}
+
+.bg-overlay {
+    background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('assets/images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 300px;
+    padding-top: 50px;
+    margin-top: 100px;
+}
+
+h1{
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
+h3{
+    font-size: 150%;
+    color: honeydew;
+    margin-top: 50px;
+}
+
+.verticalLine {
+    border-left: thick solid sandybrown;
+  }
