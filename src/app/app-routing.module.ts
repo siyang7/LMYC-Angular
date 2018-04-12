@@ -9,10 +9,6 @@ import { RulesComponent } from './rules/rules.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SignupPersonalComponent } from './auth/signup/signup-personal/signup-personal.component';
-import { SignupAddressComponent } from './auth/signup/signup-address/signup-address.component';
-import { SignupPhoneComponent } from './auth/signup/signup-phone/signup-phone.component';
-import { SignupSailingComponent } from './auth/signup/signup-sailing/signup-sailing.component';
 import { VolunteerComponent } from './volunteer/volunteer.component'
 import { ReservationComponent } from './reservation/reservation.component';
 
@@ -27,10 +23,6 @@ const routes: Routes = [
 	{ path: 'contact', component: ContactComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'signup', component: SignupComponent },
-	{ path: 'signup/personal', component: SignupPersonalComponent },
-	{ path: 'signup/address', component: SignupAddressComponent },
-	{ path: 'signup/phone', component: SignupPhoneComponent },
-	{ path: 'signup/sailing', component: SignupSailingComponent },
 	{ path: 'volunteer', component: VolunteerComponent },
 	{ path: 'reservation', component: ReservationComponent }
 

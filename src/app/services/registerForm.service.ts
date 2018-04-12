@@ -9,9 +9,10 @@ import { RegisterFormData, Personal, Address, Phone, Sailing } from '../models/r
 export class RegisterFormService {
 
 	private formData: RegisterFormData = new RegisterFormData();
-	private isPersonalFormValid: boolean = false;
-	private isWorkFormValid: boolean = false;
-	private isAddressFormValid: boolean = false;
+	public isPersonalFormValid: boolean = false;
+	public isAddressFormValid: boolean = false;
+	public isPhoneFormValid: boolean = false;
+	public isSailingFormValid: boolean = false;
 
 	// Set regiter form data
 
