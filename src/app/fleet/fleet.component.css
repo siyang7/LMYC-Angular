@@ -1,9 +1,18 @@
 .bg-no-overlay {
-    background: url('assets/images/bg4.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    color: #fff;
-    height: 350px;
-    padding-top: 50px;
+  background: url('assets/images/bg4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  height: 350px;
+  padding-top: 50px;
+}
+
+.img-thumbnail {
+  height: 200px;
+  width: 200px;
+}
+
+.media {
+    padding: 10px;
 }

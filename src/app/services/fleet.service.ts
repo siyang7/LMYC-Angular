@@ -5,20 +5,20 @@ import { of } from 'rxjs/observable/of';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class FleetService {
 
   constructor(
-    private http: Http,) { }
+    private http: Http) { }
   private BASE_URL = "https://lmyc-server.azurewebsites.net";
-  getFleets(): Promise<Boat[]> {
-      return this.http.get(this.BASE_URL + "/api/BoatsAPI")
-        .toPromise()
-        .then(response => {
-            console.log(response.json());
-            response.json() as Boat[]
-        })
+
+  getFleets(): Observable<Boat[]> {
+      return this.http
+      .get(this.BASE_URL + "/api/BoatsAPI")
+      .map(res => <Boat[]>res.json())
+      .do(data => console.log(data))
         .catch(this.handleError);
   }
 
