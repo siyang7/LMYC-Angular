@@ -4,8 +4,7 @@ import { Options } from 'fullcalendar';
 
 @Component({
 	selector: 'app-booking-calendar',
-	templateUrl: './booking-calendar.component.html',
-	styleUrls: ['./booking-calendar.component.css']
+	templateUrl: './booking-calendar.component.html'
 })
 export class BookingCalendarComponent implements OnInit {
 	calendarOptions: Options;
