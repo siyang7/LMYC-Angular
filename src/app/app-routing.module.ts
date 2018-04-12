@@ -12,7 +12,6 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { VolunteerComponent } from './volunteer/volunteer.component'
 import { ReservationComponent } from './reservation/reservation.component';
 
-
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'about', component: AboutComponent },

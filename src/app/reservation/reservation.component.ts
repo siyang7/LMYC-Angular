@@ -18,7 +18,7 @@ import { FormControl } from '@angular/forms';
 export class ReservationComponent implements OnInit {
   calendarOptions: Options
   reservations: IReservation[]
-  
+
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent
 
   constructor(protected reservationService: ReservationService,
@@ -27,7 +27,7 @@ export class ReservationComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getReservations() 
+    this.getReservations()
   }
 
   getReservations(){
@@ -130,6 +130,7 @@ export class newBookingDialogComponent {
   public memberCrews
   public memberCrewControl = new FormControl()
   public selected;
+  public Itinerary;
   public allCrewMembers : IRoleMember[];
   memberTypes = [];
   newReservation: IReservation
@@ -159,9 +160,9 @@ export class newBookingDialogComponent {
       let startDate = dateRangeArray[0]
       let endDate = dateRangeArray[1]
       if(this.checkDateRangeValid(startDate, endDate)){
-        
+
       }
-      
+
     }
   }
 
@@ -179,28 +180,28 @@ export class newBookingDialogComponent {
       for(let role of RoleArray){
         if (role === "Member Good Standing") {
           MemberGoodStanding.push(member)
-        } 
+        }
         if (role === "Member Not Good Standing") {
           MemberNotGoodStanding.push(member)
-        } 
+        }
         if (role === "Associate Member") {
           AssociateMember.push(member)
-        } 
+        }
         if (role === "Booking Moderator") {
           BookingModerator.push(member)
-        } 
+        }
         if (role === "Crew") {
           Crew.push(member)
-        } 
+        }
         if (role === "Day Skipper") {
           DaySkipper.push(member)
-        } 
+        }
         if (role === "Cruise Skipper") {
           CruiseSkipper.push(member)
-        } 
+        }
       }
     }
-    
+
     for (let member of MemberGoodStanding){
       user.push({ value: member.lastName + ' ' + member.firstName + '(' + "Member Good Standing" +')' , viewValue: member.lastName + ' ' + member.firstName})
     }
@@ -220,7 +221,7 @@ export class newBookingDialogComponent {
         user: user
       })
     user.length = 0;
-    
+
     for (let member of AssociateMember) {
       user.push({ value: member.lastName + ' ' + member.firstName + '(' + "Associate Member" + ')', viewValue: member.lastName + ' ' + member.firstName })
     }
@@ -230,7 +231,7 @@ export class newBookingDialogComponent {
         user: user
       })
     user.length = 0;
-    
+
     for (let member of BookingModerator) {
       user.push({ value: member.lastName + ' ' + member.firstName + '(' + "Booking Moderator" + ')', viewValue: member.lastName + ' ' + member.firstName })
     }
@@ -253,7 +254,7 @@ export class newBookingDialogComponent {
 
     for (let member of DaySkipper) {
       user.push({ value: member.lastName + ' ' + member.firstName + '(' + "Day Skipper" + ')', viewValue: member.lastName + ' ' + member.firstName })
-    } 
+    }
     this.memberTypes
       .push({
         name: "Day Skipper",
@@ -263,13 +264,13 @@ export class newBookingDialogComponent {
 
     for (let member of CruiseSkipper) {
       user.push({ value: member.lastName + ' ' + member.firstName + '(' + "Cruise Skipper"+ ')', viewValue: member.lastName + ' ' + member.firstName })
-    } 
+    }
     this.memberTypes
       .push({
         name: "Cruise Skipper",
         user: user
       })
-    
+
   }
 
   checkDateRangeValid(startDate, endDate){
@@ -277,7 +278,7 @@ export class newBookingDialogComponent {
     if(this.hourDiff(startDate, endDate) > 72){
       alert("Sorry, you can't book a boat for more than 72 hours at the time")
       return false;
-    } 
+    }
     if(this.hourDiff(now, endDate) < 24) {
       alert("Congrats! You get the booking for free!")
       this.newReservation.allocatedHours = '0';
@@ -305,7 +306,7 @@ export class newBookingDialogComponent {
   }
 
   onSubmit(): void {
-    
+
     this.dialogRef.close()
 
   }
