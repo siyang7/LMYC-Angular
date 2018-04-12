@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>New Booking</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput [min]="minDate" [matDatepicker]="startTicker" placeholder="Please Pick a start date">
+        <mat-datepicker-toggle matSuffix [for]="startTicker"></mat-datepicker-toggle>
+        <mat-datepicker #startTicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Select Start Hour">
+        <mat-option *ngFor="let num of hour" [value]="num">
+          {{ num }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [min]="minDate" [matDatepicker]="endPicker" placeholder="Please Pick a end date">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field> 
+
+    <mat-form-field>
+      <mat-select placeholder="Select End Hour">
+        <mat-option *ngFor="let num of hour" [value]="num">
+          {{ num }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label>
+    Date Time Range:
+        <input [(ngModel)]="invalidMoment" [min]="min" [max]="max" [owlDateTimeTrigger]="dt11" [owlDateTime]="dt11" #dateTime="ngModel">
+        <owl-date-time #dt11></owl-date-time>
+    </label>
+</div>
+<div mat-dialog-actions>
+    <button mat-button center [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

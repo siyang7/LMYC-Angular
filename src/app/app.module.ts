@@ -1,14 +1,12 @@
 import { FleetService } from './services/fleet.service';
 import { ReservationService } from './services/reservation.service';
 import { AuthService } from './services/auth.service';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from '@angular/http';
-
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { FleetComponent } from './fleet/fleet.component';
@@ -28,11 +26,14 @@ import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.com
 import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
 import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
-import { ReservationComponent, BookingDetailDialogComponent } from './reservation/reservation.component';
-import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { ReservationComponent, BookingDetailDialogComponent, newBookingDialogComponent } from './reservation/reservation.component';
+import { MatDialogModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelect, MatSelectModule, } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -54,22 +55,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		SignupSailingComponent,
 		VolunteerComponent,
 		ReservationComponent,
-		BookingDetailDialogComponent
+		BookingDetailDialogComponent,
+		newBookingDialogComponent
 	],
-	entryComponents: [BookingDetailDialogComponent],
+	entryComponents: [BookingDetailDialogComponent,
+						newBookingDialogComponent,],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
 		HttpModule,
-    	ReactiveFormsModule,
+		ReactiveFormsModule,
+		BrowserAnimationsModule,
     	FullCalendarModule,
 		MatDialogModule,
 		MatCardModule,
 		MatButtonModule,
 		MatFormFieldModule,
 		MatInputModule,
-		BrowserAnimationsModule
+		HttpClientModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
+		MatSelectModule,
+		OwlDateTimeModule,
+		OwlNativeDateTimeModule,
+		
 	],
 	providers: [
 		AuthService,

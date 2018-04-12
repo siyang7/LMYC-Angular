@@ -4,8 +4,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, ViewEncapsulation } from '@angular/core';
 import { ReservationService } from '../services/reservation.service';
+import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-reservation',
@@ -23,53 +24,58 @@ export class ReservationComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.getReservations();
-    this.reservationService.getReservation().subscribe(data => {
-      this.calendarOptions = {
-        editable: true,
-        eventLimit: false,
-        selectable: true,
-        header: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'month,agendaWeek,agendaDay,listMonth'
-        },
-        events: data
-      };
-    })
+    this.getReservations(); 
   }
 
   getReservations(){
-    this.reservationService.getReservations()
-      .then(reservations => this.reservations = reservations);
+    this.reservationService
+      .getReservations()
+      .subscribe(
+        reservations => this.reservations = reservations,
+        error => alert("error: " + error),
+        () => {
+          this.calendarOptions = {
+            editable: true,
+            eventLimit: false,
+            header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,agendaWeek,agendaDay,listMonth'
+            },
+            events: this.getReservationsToDisplay()
+          };
+        }
+      );
   }
 
-  displayReservations(){
+  //get all the reservations from local array and return an array of booking for display
+  getReservationsToDisplay(){
     const dateObj = new Date();
     const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
     let data: any = [];
-    
-    for(let reservation of this.reservations){
-      let StartDate = reservation.StartDateTime;
-      let EndDate = reservation.EndDateTime;
-      let StartDay = StartDate.getDay();
-      let StartMonth = StartDate.getMonth();
-      let StartYear = StartDate.getFullYear();
+
+    for(let r of this.reservations){
+      data.push({
+        BoatName: r.boatName,
+        title: r.boatName,
+        start: r.startDateTime,
+        end: r.endDateTime,
+        itinerary: r.itinerary,
+        createdBy: r.firstName + r.lastName
+      })
     }
+    return data;
   }
-  
-  clickButton(model: any) {
-    this.displayEvent = model;
-  }
+
+  //display the detail of that event got clicked
   eventClick(model: any) {
-    var date = new Date(model.startDate);
     let dialogRef = this.dialog.open(BookingDetailDialogComponent, {
       width: '250px',
-      data: { BoatName: "done",
-              FromDate: "fromdate",
-              EndDate: "enddate",
-              Itinerary: "Itinerary",
-              CreatedBy: "CreateBy",
+      data: { BoatName: model.event.BoatName,
+              FromDate: model.event.start.format(),
+              EndDate: model.event.start.format(),
+              Itinerary: model.event.itinerary,
+              CreatedBy: model.event.createdBy,
              }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -77,14 +83,23 @@ export class ReservationComponent implements OnInit {
     });
   }
 
+  //create a new event when user click on a date
   dayClick(model: any) {
-    var date = new Date(model.date);
-    alert("dayClicked! Day:" + date.getDay() + " Month " + date.getMonth() + "-------" + model.date.format() );
+    var date = new Date(model.startDate);
+    let dialogRef = this.dialog.open(newBookingDialogComponent, {
+      width: '250px',
+      data: {
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   select(startDate: any, endDate : any) {
     alert('selected ' + startDate.format() + ' to ' + endDate.format());
   }
+  clickButton(model: any){}
 
   updateEvent(model: any) {
     model = {
@@ -106,7 +121,7 @@ export class ReservationComponent implements OnInit {
 
 @Component({
   selector: 'app-booking-detail-dialog',
-  templateUrl: 'bookingDetailDialog.components.html',
+  templateUrl: 'bookingDetailDialog.component.html',
 })
 export class BookingDetailDialogComponent {
 
@@ -117,5 +132,28 @@ export class BookingDetailDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+}
 
+@Component({
+  selector: 'app-new-booking-dialog',
+  templateUrl: 'newBookingDialog.component.html',
+  styleUrls: ['newBookingDialog.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  preserveWhitespaces: false,
+})
+export class newBookingDialogComponent {
+  minDate = new Date();
+  hour = [];
+  constructor(
+    public dialogRef: MatDialogRef<newBookingDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  ngOnInit() {
+    for(let i = 0 ; i < 25; i++){
+      this.hour.push(i.toString())
+    }
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
