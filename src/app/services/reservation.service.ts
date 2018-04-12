@@ -6,14 +6,15 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from "@angular/common/http";
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class ReservationService {
 
     constructor( private http: Http) { }
 
-    private BASE_URL = "http://localhost:50198";
-    
+    private BASE_URL = "https://lmyc-server.azurewebsites.net";
+
     getReservations(): Observable<IReservation[]> {
         return this.http
           .get(this.BASE_URL + '/api/Bookingsapi')
@@ -25,11 +26,12 @@ export class ReservationService {
       return this.http
         .get(this.BASE_URL + '/api/MembersAPI')
         .map((res: Response) => <IRoleMember[]>res.json())
+        .do(data => console.log(data))
         .catch((err: Error) => this.handleError(Error))
     }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); 
+    console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 
