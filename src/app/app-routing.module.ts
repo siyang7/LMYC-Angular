@@ -6,7 +6,6 @@ import { FleetComponent } from './fleet/fleet.component';
 import { FaqComponent } from './faq/faq.component';
 import { MembershipComponent } from './membership/membership.component';
 import { RulesComponent } from './rules/rules.component';
-import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { VolunteerComponent } from './volunteer/volunteer.component'
@@ -20,7 +19,6 @@ const routes: Routes = [
 	{ path: 'faq', component: FaqComponent },
 	{ path: 'membership', component: MembershipComponent },
 	{ path: 'rules-and-regulations', component: RulesComponent },
-	{ path: 'contact', component: ContactComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'signup', component: SignupComponent },
 	{ path: 'volunteer', component: VolunteerComponent },

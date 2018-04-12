@@ -38,8 +38,18 @@ export class LoginComponent implements OnInit {
 			this.login();
 		}
 	}
+	addToEnd(email, password){
+		this.authService.login(email, password, 'password')
+			.subscribe(res => {
+				this.router.navigate(['/']);
+			}, error => {
+				var results = error['_body'];
+				this.errorMessage = error
+			});
+	}
 
 	login() {
+		alert(this.loginForm.value.emailAddress)
 		this.authService.login(this.loginForm.value.emailAddress, this.loginForm.value.password, 'password')
 			.subscribe(res => {
 				this.router.navigate(['/']);

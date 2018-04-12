@@ -13,7 +13,6 @@ import { FleetComponent } from './fleet/fleet.component';
 import { FaqComponent } from './faq/faq.component';
 import { MembershipComponent } from './membership/membership.component';
 import { RulesComponent } from './rules/rules.component';
-import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -39,7 +38,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 		AboutComponent,
 		MembershipComponent,
 		RulesComponent,
-		ContactComponent,
 		LoginComponent,
 		SignupComponent,
 		NavbarComponent,
