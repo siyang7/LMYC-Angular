@@ -29,6 +29,8 @@ import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/ma
 import { MatCardModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MemberRowComponent } from './member-row/member-row.component';
+import { MembersTableComponent } from './membersPage/members-table/members-table.component';
 
 @NgModule({
 	declarations: [
@@ -48,6 +50,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		VolunteerComponent,
 		ReservationComponent,
 		BookingDetailDialogComponent,
+		MemberRowComponent,
+		MembersTableComponent,
 
 	],
 	entryComponents: [BookingDetailDialogComponent],

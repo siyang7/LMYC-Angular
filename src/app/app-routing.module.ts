@@ -11,7 +11,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { VolunteerComponent } from './volunteer/volunteer.component'
 import { ReservationComponent } from './reservation/reservation.component';
-
+import { MembersTableComponent } from './membersPage/members-table/members-table.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -24,7 +24,8 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'signup', component: SignupComponent },
 	{ path: 'volunteer', component: VolunteerComponent },
-	{ path: 'reservation', component: ReservationComponent }
+	{ path: 'reservation', component: ReservationComponent },
+	{ path: 'members', component: MembersTableComponent }
 
 ];
 @NgModule({
