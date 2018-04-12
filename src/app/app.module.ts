@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
 import { HttpModule } from '@angular/http';
 
 import { AboutComponent } from './about/about.component';
@@ -23,16 +23,17 @@ import { FullCalendarModule } from './../../node_modules/ng-fullcalendar'
 import { DynamicFormComponent } from './components/dynamic-form-group/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SignupAddressComponent } from './auth/signup/forms/signup-address.component';
-import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
-import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
-import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
+import { SignupPersonalComponent } from './auth/signup/signup-personal/signup-personal.component';
+import { SignupAddressComponent } from './auth/signup/signup-address/signup-address.component';
+import { SignupPhoneComponent } from './auth/signup/signup-phone/signup-phone.component';
+import { SignupSailingComponent } from './auth/signup/signup-sailing/signup-sailing.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { ReservationComponent, BookingDetailDialogComponent } from './reservation/reservation.component';
 import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -54,16 +55,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		SignupSailingComponent,
 		VolunteerComponent,
 		ReservationComponent,
-		BookingDetailDialogComponent
+		BookingDetailDialogComponent,
+
 	],
 	entryComponents: [BookingDetailDialogComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		FormsModule,
+		FormsModule,                               // <========== Add this line!
+		ReactiveFormsModule,                        // <========== Add this line!
 		HttpModule,
-    	ReactiveFormsModule,
-    	FullCalendarModule,
+		FullCalendarModule,
 		MatDialogModule,
 		MatCardModule,
 		MatButtonModule,

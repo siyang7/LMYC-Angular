@@ -1,3 +1,10 @@
-<div>
-		<app-signup-personal></app-signup-personal>
+<div class="container">
+	<!-- Routed view  -->
+	<app-signup-personal></app-signup-personal>
+	<app-signup-address></app-signup-address>
+	<app-signup-phone></app-signup-phone>
+	<app-signup-sailing></app-signup-sailing>
+
+	<!-- For Debugging: show our formData as it is being typed -->
+	<pre>{{ RegisterFormData | json }}</pre>
 </div>

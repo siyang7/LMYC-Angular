@@ -9,10 +9,10 @@ import { RulesComponent } from './rules/rules.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SignupAddressComponent } from './auth/signup/forms/signup-address.component';
-import { SignupPersonalComponent } from './auth/signup/forms/signup-personal.component';
-import { SignupPhoneComponent } from './auth/signup/forms/signup-phone.component';
-import { SignupSailingComponent } from './auth/signup/forms/signup-sailing.component';
+import { SignupPersonalComponent } from './auth/signup/signup-personal/signup-personal.component';
+import { SignupAddressComponent } from './auth/signup/signup-address/signup-address.component';
+import { SignupPhoneComponent } from './auth/signup/signup-phone/signup-phone.component';
+import { SignupSailingComponent } from './auth/signup/signup-sailing/signup-sailing.component';
 import { VolunteerComponent } from './volunteer/volunteer.component'
 import { ReservationComponent } from './reservation/reservation.component';
 

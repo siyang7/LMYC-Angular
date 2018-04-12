@@ -7,8 +7,8 @@ export class RegisterFormData {
 
 	street: string = '';
 	city: string = '';
-	postalCode: string = '';
 	country: string = '';
+	postalCode: string = '';
 
 	mobilePhone: string = '';
 	homePhone: string = '';
@@ -49,11 +49,10 @@ export class Address {
 	street: string = '';
 	city: string = '';
 	country: string = '';
-	zip: string = '';
+	postalCode: string = '';
 }
 
 export class Phone {
-
 	mobilePhone: string = '';
 	homePhone: string = '';
 	workPhone: string = '';

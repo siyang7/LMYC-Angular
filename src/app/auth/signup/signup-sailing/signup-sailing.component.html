@@ -1,0 +1,35 @@
+<form #phoneForm="ngForm" novalidate>
+	<div>
+		<h4 class="head text-center">{{title}}</h4>
+		<br/>
+		<div class='row'>
+
+			<!-- TODO: Dropdown list of Qualifications -->
+			<div class="form-group">
+				<label class="control-label" for="sailingQualifications">Sailing Qualifications</label>
+				<input class="form-control input-md" #sailingQualifications="ngModel" required name="sailingQualifications" type="tel" placeholder="sailingQualifications" [(ngModel)]="sailing.sailingQualifications">
+				<div class="alert alert-danger" [hidden]="sailingQualifications.valid">Sailing Qualifications is required</div>
+			</div>
+
+			<!-- TODO: Dropdown list of skills -->
+			<div class="form-group">
+				<label class="control-label" for="skills">Skills</label>
+				<input class="form-control input-md" #skills="ngModel" required name="skills" type="text" placeholder="skills" [(ngModel)]="sailing.skills">
+				<div class="alert alert-danger" [hidden]="skills.valid">Skills is required</div>
+			</div>
+
+			<!-- TODO: Dropdown list of experiences (Beginner, Advanced) -->
+			<div class="form-group">
+				<label class="control-label" for="sailingExperience">Sailing Experience</label>
+				<input class="form-control input-md" #sailingExperience="ngModel" required name="sailingExperience" type="tel" placeholder="sailingExperience" [(ngModel)]="sailing.sailingExperience">
+				<div class="alert alert-danger" [hidden]="sailingExperience.valid">sailingExperience is required</div>
+			</div>
+
+		</div>
+        <div class="row">
+            <div class="form-group text-center">
+                <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!phoneForm.valid" (click)="goToNext(phoneForm)"> Next</button>
+            </div>
+        </div>
+	</div>
+</form>
