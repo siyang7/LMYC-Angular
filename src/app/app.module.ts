@@ -1,14 +1,12 @@
 import { FleetService } from './services/fleet.service';
 import { ReservationService } from './services/reservation.service';
 import { AuthService } from './services/auth.service';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
 import { HttpModule } from '@angular/http';
-
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { FleetComponent } from './fleet/fleet.component';
@@ -24,13 +22,14 @@ import { DynamicFormComponent } from './components/dynamic-form-group/dynamic-fo
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
-import { ReservationComponent, BookingDetailDialogComponent } from './reservation/reservation.component';
-import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
-import { MatCardModule } from '@angular/material';
+import { ReservationComponent, BookingDetailDialogComponent, newBookingDialogComponent } from './reservation/reservation.component';
+import { MatDialogModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelect, MatSelectModule, } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MemberRowComponent } from './member-row/member-row.component';
+import { MemberRowComponent } from './membersPage/member-row/member-row.component';
 import { MembersTableComponent } from './membersPage/members-table/members-table.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
 	declarations: [
@@ -50,24 +49,31 @@ import { MembersTableComponent } from './membersPage/members-table/members-table
 		VolunteerComponent,
 		ReservationComponent,
 		BookingDetailDialogComponent,
+		newBookingDialogComponent,
 		MemberRowComponent,
 		MembersTableComponent,
-
 	],
-	entryComponents: [BookingDetailDialogComponent],
+	entryComponents: [BookingDetailDialogComponent,
+		newBookingDialogComponent,],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,                               // <========== Add this line!
 		ReactiveFormsModule,                        // <========== Add this line!
 		HttpModule,
+		ReactiveFormsModule,
+		BrowserAnimationsModule,
 		FullCalendarModule,
 		MatDialogModule,
-		MatCardModule,
 		MatButtonModule,
 		MatFormFieldModule,
 		MatInputModule,
-		BrowserAnimationsModule
+		HttpClientModule,
+		MatNativeDateModule,
+		MatSelectModule,
+		OwlDateTimeModule,
+		OwlNativeDateTimeModule,
+
 	],
 	providers: [
 		AuthService,

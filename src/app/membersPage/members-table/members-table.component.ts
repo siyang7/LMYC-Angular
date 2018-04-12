@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Member } from '../../models/member'
+import { IRoleMember } from '../../models/IRoleMember'
 
 @Component({
 	selector: 'app-members-table',
@@ -8,7 +8,7 @@ import { Member } from '../../models/member'
 })
 export class MembersTableComponent implements OnInit {
 
-    @Input() members: Member<any>[] = [];
+    @Input() members: IRoleMember[] = [];
 
 	constructor() { }
 
