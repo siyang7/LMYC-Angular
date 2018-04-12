@@ -6,10 +6,12 @@
     color: #fff;
     height: 650px;
     padding-top: 50px;
+    display: table;
+    width: 100%;
 }
 
 .bg-overlay {
-    background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('assets/images/bg1.jpg');
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('assets/images/bg1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -19,12 +21,53 @@
     margin-top: 100px;
 }
 
-h1{
-    margin-left: 0px;
-    margin-top: 20px;
+.row {
+    margin: 0;
 }
 
-h3{
+/* Header styling */
+
+h1 {
+    margin-left: 0px;
+    margin-top: 20px;
+    font-size: 3.5em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#div_header_text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* Join Button Styling */
+
+.a_join_btn {
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 24px;
+    font-weight: 700;
+    padding: 12px 35px;
+    color: #fff;
+    text-transform: uppercase;
+    border: 1px solid;
+    background-color: #165784;
+    border-color: #165784;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.a_join_btn:hover {
+    background-color: unset;
+    text-decoration: none;
+    color: #165784;
+}
+
+h4 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
     font-size: 150%;
     color: honeydew;
     margin-top: 50px;
@@ -32,4 +75,4 @@ h3{
 
 .verticalLine {
     border-left: thick solid sandybrown;
-  }
+}
