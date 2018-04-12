@@ -1,9 +1,0 @@
-.bg-no-overlay {
-    background: url('assets/images/aboutus.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    color: #fff;
-    height: 350px;
-    padding-top: 50px;
-}
