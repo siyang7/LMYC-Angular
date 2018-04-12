@@ -1,8 +1,10 @@
+
 <div class="container">
 
 	<!-- PERSONAL -->
 	<form #personalForm="ngForm" novalidate>
 		<div>
+			<br>
 			<h4 class="head text-center">{{personalTitle}}</h4>
 			<br/>
 			<div class='row'>
@@ -32,6 +34,7 @@
 
 	<form #addressForm="ngForm" novalidate>
 		<div>
+			<br>
 			<h4 class="head text-center">{{addressTitle}}</h4>
 			<br/>
 			<div class='row'>
@@ -64,6 +67,7 @@
 
 	<form #phoneForm="ngForm" novalidate>
 		<div>
+			<br>
 			<h4 class="head text-center">{{phoneTitle}}</h4>
 			<br/>
 			<div class='row'>
@@ -105,6 +109,7 @@
 
 	<form #sailingForm="ngForm" novalidate>
 		<div>
+			<br>
 			<h4 class="head text-center">{{sailingTitle}}</h4>
 			<br/>
 			<div class='row'>
@@ -135,10 +140,12 @@
 	</form>
 
 
-
+<br>
 	<div class="form-group text-center">
 		<button class="btn btn-success btn-outline-rounded btn-info" (click)="submitRegistrationFrom(personalForm, addressForm, phoneForm, sailingForm)"> Next</button>
 	</div>
 
 	<pre>{{ RegisterFormData | json }}</pre>
+
+
 </div>
