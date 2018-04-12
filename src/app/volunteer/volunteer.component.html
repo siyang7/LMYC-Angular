@@ -1,0 +1,44 @@
+<div class="container">
+	<form #volunteerForm="ngForm" class="">
+			<div>
+				<h4 class="head text-center">{{personalTitle}}</h4>
+				<br/>
+				<div class='row'>
+					<div class="form-group">
+						<label class="control-label" for="date">Date</label>
+						<input class="form-control input-md" #date="ngModel" required name="Date" type="Date" [(ngModel)]="Volunteer.date">
+						<div class="alert alert-danger" *ngIf="date.invalid && (date.dirty || date.touched)">First Name is required</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="duration">Number of Hours</label>
+						<input class="form-control input-md" #duration="ngModel" required min="1" max="24" name="duration" type="number" [(ngModel)]="Volunteer.duration">
+						<div class="alert alert-danger" *ngIf="duration.invalid && (duration.dirty || duration.touched)">Last Name is required</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="email">Description</label>
+						<input class="form-control input-md" #description="ngModel" required name="description" type="text" placeholder="Description" [(ngModel)]="Volunteer.description">
+						<div class="alert alert-danger" *ngIf="description.invalid && (description.dirty || description.touched)">Description is required</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="classificationCode">Classification Code</label>
+						<select #classificationCode="ngModel" required class="form-control" name="classificationCode" [(ngModel)]="Volunteer.classificationCode">
+							<option value=0>Boat Maint (Hard)</option>
+							<option value=1>Boat Maint (Monthly)</option>
+						  	<option value=2>Cruise Skipper Training</option>
+						  <option value=3>Day Skipper</option>
+						  <option value=4>Executive</option>
+						  <option value=5>Winter Watch</option>
+						  <option value=6>Etc.</option>
+					  	</select>
+						<div class="alert alert-danger" *ngIf="classificationCode.invalid && (classificationCode.dirty || classificationCode.touched)">Classification code is required</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group text-center">
+				<button class="btn btn-success btn-outline-rounded btn-info" (click)="buttonOnClick(volunteerForm)"> Next</button>
+			</div>
+
+			{{Volunteer | json}}
+
+	</form>
+</div>
