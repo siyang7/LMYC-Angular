@@ -1,6 +1,23 @@
 <div class="container">
-    <h1>Members</h1>
-    <div>
-        <app-member-row></app-member-row>
-    </div>
+	<h1>Members</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">userId</th>
+				<th scope="col">Full Name</th>
+				<th scope="col">Role</th>
+				<th scope="col">Email</th>
+				<th scope="col">Home</th>
+				<th scope="col">Mobile</th>
+			</tr>
+		</thead>
+		<tbody>
+            <!-- <tr *ngFor="let member of members; let i=index">
+                <td>{{member.role}}</td>
+                <td>{{member.firstName}} {{member.lastName}} </td>
+                <td>{{member.homePhone}}</td>
+                <td>{{member.mobilePhone}}</td>
+              </tr> -->
+		</tbody>
+	</table>
 </div>
