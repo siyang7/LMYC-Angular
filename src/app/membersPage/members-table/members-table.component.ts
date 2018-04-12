@@ -15,20 +15,21 @@ export class MembersTableComponent implements OnInit {
 	@Input() member: IRoleMember;
 
 	constructor(
-		reservationService: ReservationService,
-		membersService: MembersService
+		private reservationService: ReservationService,
+		private membersService: MembersService
 	) {
 
 	}
 
 	ngOnInit() {
-		this.members = this.reservationService.getMembers().subscribe(
+		this.reservationService.getMembers().subscribe(
 			allCrewMembers => this.members = allCrewMembers,
 			error => console.log("error: " + error),
 			() => {
-				this.upDateDropDown()
 			}
 		)
+
+		console.log(this.members);
 	}
 
 }

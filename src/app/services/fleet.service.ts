@@ -16,8 +16,9 @@ export class FleetService {
       return this.http.get(this.BASE_URL + "/api/BoatsAPI")
         .toPromise()
         .then(response => {
-            console.log(response);
-            response.json() as Boat[]})
+            console.log(response.json());
+            response.json() as Boat[]
+        })
         .catch(this.handleError);
   }
 
