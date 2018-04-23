@@ -7,13 +7,13 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AuthService {
-  private BASE_URL = "http://localhost:50198";
+  private BASE_URL = "https://lmyc-server.azurewebsites.net";
+  private headers: Headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
   accessToken = "";
 
   constructor(private http: Http) { }
   private JsonHeader: Headers = new Headers({ 'Content-Type': 'application/json' });
-  private FormHeader: Headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
   //check if user logged in
   isAuthenticated(): boolean {
@@ -48,7 +48,7 @@ export class AuthService {
     expiry.setSeconds(expiry.getTime() + auth.expires_in);
     sessionStorage.setItem('expires_in', expiry.getTime().toString());
   }
-  
+
   login(username, password, grant_type): Observable<IAuthentication> {
     let url: string = this.BASE_URL + '/connect/token';
 
@@ -57,6 +57,8 @@ export class AuthService {
       password: password,
       grant_type: grant_type
     };
+
+    console.log(credential);
 
     var body = "";
 
@@ -69,8 +71,9 @@ export class AuthService {
       body += encodeURIComponent(credential[key]);
     }
 
-    return this.http.post(url, body, { headers: this.FormHeader })
+    return this.http.post(url, body, { headers: this.headers })
       .map(res => {
+          console.log(res)
         this.setToken(res.json() as IAuthentication);
       }).catch(this.handleError);
   }

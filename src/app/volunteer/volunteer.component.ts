@@ -1,50 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-import { QuestionControlService } from '../components/questions/question-control.service';
-import { VolunteerQuestionService } from '../components/questions/questionsService/volunteerQuestion.service';
+import { VolunteerFormService } from '../services/volunteerForm.service';
+import { Volunteer } from '../models/volunteerFormData'
 
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-volunteer',
-	templateUrl: '../components/dynamic-form-group/dynamic-form.component.html',
-	styleUrls: ['../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [VolunteerQuestionService, QuestionControlService]
+	templateUrl: './volunteer.component.html',
+	styleUrls: ['./volunteer.component.css'],
+	providers: [VolunteerFormService]
 })
 
 export class VolunteerComponent implements OnInit {
 
-	form: FormGroup;
-	questions: any[];
-
-	formTitleText = "Register Volunteers"
-	formButtonText = "Submit"
-	errorMessage: string;
+	@Input() Volunteer;
 
 	constructor(
 		private router: Router,
-		private qcs: QuestionControlService,
-		private VolunteerQuestionService: VolunteerQuestionService
-	) {
-		this.questions = VolunteerQuestionService.getVolunteerQuestions();
-	}
+		private volunteerformService: VolunteerFormService
+	) { }
 
 	ngOnInit() {
-		this.form = this.qcs.toFormGroup(this.questions);
+		this.Volunteer = this.volunteerformService.getVolunteerForm();
 		console.log('Volunteer form loaded!');
 	}
 
-	save(form: any): boolean {
-		if (!this.form.valid) {
+	volunteerSave(form: any) {
+		if (!form.valid) {
 			return false;
 		}
 
-		console.log(this.form.value)
+		console.log("Volunteer form saved!")
 		return true;
 	}
 
-	buttonOnClick() {
-
+	buttonOnClick(form: any) {
+		if (this.volunteerSave(form)) {
+			console.log("Form saved")
+		}
 	}
 }

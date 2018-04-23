@@ -1,0 +1,23 @@
+<div id="bg1">
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p id="title">LOG-IN</p>
+        <div class="form-group">
+
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" class="form-control input-md" name="email" type="email" placeholder="Email" #emailInput>
+            <br>
+            <br>
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="password">Password</label>
+            <input id="password" class="form-control input-md" name="password" type="password" placeholder="Password" #passwordInput>
+        <br><br>
+
+        </div>
+       <div class="wrapper">
+            <button class="button" type="submit" (click) = "addToEnd(emailInput.value, passwordInput.value)">Submit</button>
+        </div>
+    </form>
+</div>
+</div>

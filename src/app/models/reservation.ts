@@ -3,17 +3,27 @@ import { IUser } from './user';
 import { Boat } from './boat';
 
 export interface IReservation {
-
-        ReservationId: string,
-        CreatedBy: string,
-        User: IUser,
+        bookingId: string,
+        boatId: string,
+        boatName: string,
         ReservedBoat: string,
         Boat: Boat,
-        StartDateTime: Date,
-        EndDateTime: Date,
-        MemberCrew: IUser[],
-        NonMemberCrew: IUser[],
-        Itinerary: string,
-        AllocatedCredit: number,
-        AllocatedHours: number
+        startDateTime: string,
+        endDateTime: string,
+        nonMemberCrews: string,
+        itinerary: string,
+        allocatedHours: string,
+        userId: string,
+        firstName: string,
+        lastName: string,
+        memberCrews: CrewMember[]
 }
+
+class CrewMember{
+        constructor(
+                name: string,
+                roleName: string
+        ){}
+        
+}
+

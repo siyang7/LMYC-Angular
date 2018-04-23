@@ -3,13 +3,13 @@ import { FormGroup } from '@angular/forms';
 
 import { QuestionBase } from '../questions/question-base';
 import { QuestionControlService } from '../questions/question-control.service';
-import { FormService } from '../../services/form.service'
+import { RegisterFormService } from '../../services/registerForm.service'
 
 @Component({
 	selector: 'app-dynamic-form',
 	templateUrl: './dynamic-form.component.html',
 	styleUrls: ['./dynamic-form.component.css'],
-	providers: [QuestionControlService, FormService]
+	providers: [QuestionControlService, RegisterFormService]
 })
 export class DynamicFormComponent implements OnInit {
 
@@ -19,13 +19,31 @@ export class DynamicFormComponent implements OnInit {
 
 	form: FormGroup;
 
+	payload = '';
+
 	constructor(
 		private qcs: QuestionControlService,
-		private formService: FormService,
+		private registerFormService: RegisterFormService,
 	) {
 	}
 
 	ngOnInit() {
 		this.form = this.qcs.toFormGroup(this.questions);
+	}
+
+	save(form: any): boolean {
+		if (!this.form.valid) {
+			return false;
+		}
+
+		console.log(this.form.value)
+		return true;
+	}
+
+	buttonOnClick() {
+		if (this.save(this.form)) {
+			this.registerFormService.submitForm(this.payload, this.form);
+		}
+
 	}
 }

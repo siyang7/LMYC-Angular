@@ -3,19 +3,23 @@ import { Injectable } from '@angular/core';
 import { Boat } from '../models/boat';
 import { of } from 'rxjs/observable/of';
 import { Headers, Http, Response } from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class FleetService {
 
   constructor(
-    private http: Http,) { }
-  private BASE_URL = "http://localhost:50198"; 
-  getFleets(): Promise<Boat[]> {
-      return this.http.get(this.BASE_URL + "/api/BoatsAPI")
-        .toPromise()
-        .then(response => response.json() as Boat[])
+    private http: Http) { }
+  private BASE_URL = "https://lmyc-server.azurewebsites.net";
+
+  getFleets(): Observable<Boat[]> {
+      return this.http
+      .get(this.BASE_URL + "/api/BoatsAPI")
+      .map(res => <Boat[]>res.json())
+      .do(data => console.log(data))
         .catch(this.handleError);
   }
 

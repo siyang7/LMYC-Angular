@@ -1,62 +1,45 @@
 import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-
-import { QuestionControlService } from '../../components/questions/question-control.service';
-import { RegisterQuestionsService } from '../../components/questions/questionsService/registerQuestionsService.service';
+import { FormGroup, FormControl, Validators  } from "@angular/forms";
 
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
-	templateUrl: '../../components/dynamic-form-group/dynamic-form.component.html',
-	styleUrls: ['../../components/dynamic-form-group/dynamic-form.component.css'],
-	providers: [RegisterQuestionsService, QuestionControlService]
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent implements OnInit {
 
-	form: FormGroup;
-	questions: any[];
+	loginForm: FormGroup;
 
-	formTitleText = "Login"
-	formButtonText = "Login"
-	errorMessage: string;
+    errorMessage: string;
 
 	constructor(
 		private authService: AuthService,
 		private router: Router,
-		private qcs: QuestionControlService,
-		private RegisterQuestionsService: RegisterQuestionsService
 	) {
-		this.questions = RegisterQuestionsService.getSignInQuestions();
+		console.log(this.loginForm);
 	}
 
 	ngOnInit() {
-		this.form = this.qcs.toFormGroup(this.questions);
-		this.formTitleText = "Please Login"
-		this.formButtonText = "Login"
-
-		console.log('Sign in form loaded!');
+		this.loginForm = new FormGroup({
+			email: new FormControl(null, [
+				Validators.required,
+				Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+			]),
+			password: new FormControl(null, Validators.required)
+		});
 	}
 
-	save(form: any): boolean {
-		if (!this.form.valid) {
-			return false;
-		}
-
-		console.log(this.form.value)
-		return true;
-	}
-
-	buttonOnClick() {
-		if (this.save(this.form)) {
+	onSubmit() {
+		if (this.loginForm.valid) {
 			this.login();
 		}
 	}
-
-	login() {
-		this.authService.login(this.form.value.emailAddress, this.form.value.password, 'password')
+	addToEnd(email, password){
+		this.authService.login(email, password, 'password')
 			.subscribe(res => {
 				this.router.navigate(['/']);
 			}, error => {
@@ -64,4 +47,16 @@ export class LoginComponent implements OnInit {
 				this.errorMessage = error
 			});
 	}
+
+	login() {
+		alert(this.loginForm.value.emailAddress)
+		this.authService.login(this.loginForm.value.emailAddress, this.loginForm.value.password, 'password')
+			.subscribe(res => {
+				this.router.navigate(['/']);
+			}, error => {
+				var results = error['_body'];
+				this.errorMessage = error
+			});
+	}
+
 }

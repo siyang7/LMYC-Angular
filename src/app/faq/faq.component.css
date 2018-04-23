@@ -1,0 +1,14 @@
+.bg-no-overlay {
+    background: url('assets/images/bg3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 350px;
+    padding-top: 50px;
+}
+
+h5{
+    text-decoration-color: peru;
+    color:  #165784;
+}

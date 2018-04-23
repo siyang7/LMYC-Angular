@@ -1,0 +1,21 @@
+<div class="container">
+	<h1>Members</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Full Name</th>
+				<th scope="col">Role</th>
+				<th scope="col">Email</th>
+				<th scope="col">Home</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let member of members; let i=index">
+				<td>{{member.firstName}} {{member.lastName}} </td>
+				<td>{{member.role}}</td>
+				<td>{{member.email}}</td>
+				<td>{{member.homePhone}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

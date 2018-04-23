@@ -11,10 +11,5 @@
 			(click)="buttonOnClick()" [disabled]="form.invalid">{{formButtonText}}</button>
 		</div>
 
-		<div *ngIf="payLoad">
-			<strong>Saved the following values</strong><br>{{payLoad}}
-		</div>
 	</form>
-
-	<pre>{{ formData | json }}</pre>
 </div>
